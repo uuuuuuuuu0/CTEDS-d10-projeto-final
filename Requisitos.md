@@ -10,6 +10,6 @@ Padrão de arquitetura em camadas (detalhar mais)
 
 (a pensar) Exibição da quantidade de ganhadores, e seus nomes
 
-(a pensar) Página de estatísticas com informações com: números mais jogados, múmeros mais sorteados, etc. Além disso, definir como vai ser o banco de dados nesse requisito
+(a pensar) Página de estatísticas com informações como: números mais jogados, múmeros mais sorteados, etc. Além disso, definir como vai ser o banco de dados nesse requisito
 
 
