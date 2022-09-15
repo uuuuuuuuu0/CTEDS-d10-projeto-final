@@ -15,15 +15,13 @@
 
 ## Padrão de arquitetura em camadas:
 
-- Presentation Layer: 
+- Presentation Layer: Interface utilizando ferramentas como WPF e XAML (front end)
 
-- Service Layer: 
+- Application Layer: Definição dos serviços da aplicação
 
-- Business Logic Layer: 
+- Business Layer: Camada intermediária entre a Application Layer e a Database Layer
 
-- Persistent Layer: 
-
-- Database Layer: 
+- Database Layer: Servidor SQL
 
 link: https://www.youtube.com/watch?v=V4RDMV0L-JM&t=89s
 
