@@ -14,6 +14,7 @@
 #### Critérios propóstos:
 - [ ] Implementação do banco de dados.
 - [ ] Fazer o gerador de números aleatórios.
+- [ ] Definir e implementar estatísticas que serão fornecidas.
 ## Aula 05/10
 #### Critérios propóstos:
 - [ ] Começar a mexer no WPF e no XAML
