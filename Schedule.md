@@ -9,20 +9,20 @@
 #### Critérios propóstos:
 - [ ] Organizar o repositório do GitHub.
 - [ ] Protótipo de alta fidelidade.
-- [ ] Entender requisitos do WPF e XAML (Não temos conhecimento sobre).
+- [x] Entender requisitos do WPF e XAML (Não temos conhecimento sobre).
+- [ ] Iniciar o back end (Camadas de controle e de modelos).
 ## Aula 28/09
 #### Critérios propóstos:
+- [ ] Começar o front end.
 - [ ] Implementação do banco de dados.
 - [ ] Fazer o gerador de números aleatórios.
-- [ ] Definir e implementar estatísticas que serão fornecidas.
 ## Aula 05/10
 #### Critérios propóstos:
-- [ ] Começar a mexer no WPF e no XAML
-- [ ] Começar o front end.
+- [ ] Definir e implementar estatísticas que serão fornecidas.
 ## Feriado 12/10
 #### Critérios propóstos:
-- [ ] Finalizar o WPF e o XAML.
 - [ ] Finalizar o front end.
+- [ ] Finalizar o back end.
 ## Aula 19/10
 #### Critérios propóstos:
 - [ ] Dia reservado para aplicações extras ou pendentes
