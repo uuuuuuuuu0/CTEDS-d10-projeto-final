@@ -22,6 +22,9 @@ namespace Mega_Sena_Application.Models
 
         public string[] Winners { get; set; }
 
+        public abstract int range { get; }
+
+        public abstract int size { get; }
         public int n_Winners { 
             get
             {
