@@ -10,7 +10,7 @@
 - [ ] Organizar o repositório do GitHub.
 - [ ] Protótipo de alta fidelidade.
 - [x] Entender requisitos do WPF e XAML (Não temos conhecimento sobre).
-- [ ] Iniciar o back end (Camadas de controle e de modelos).
+- [x] Iniciar o back end (Camadas de controle e de modelos).
 ## Aula 28/09
 #### Critérios propóstos:
 - [ ] Começar o front end.
