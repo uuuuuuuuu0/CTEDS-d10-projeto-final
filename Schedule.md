@@ -8,7 +8,7 @@
 ## Aula 21/09
 #### Critérios propóstos:
 - [ ] Organizar o repositório do GitHub.
-- [ ] Protótipo de alta fidelidade.
+- [x] Protótipo de alta fidelidade.
 - [x] Entender requisitos do WPF e XAML (Não temos conhecimento sobre).
 - [x] Iniciar o back end (Camadas de controle e de modelos).
 ## Aula 28/09
