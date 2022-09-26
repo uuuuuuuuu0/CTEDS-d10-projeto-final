@@ -7,7 +7,7 @@
 - [x] Criação do protótipo de baixa fidelidade.
 ## Aula 21/09
 #### Critérios propóstos:
-- [ ] Organizar o repositório do GitHub.
+- [x] Organizar o repositório do GitHub.
 - [x] Protótipo de alta fidelidade.
 - [x] Entender requisitos do WPF e XAML (Não temos conhecimento sobre).
 - [x] Iniciar o back end (Camadas de controle e de modelos).
