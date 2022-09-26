@@ -15,7 +15,7 @@
 #### Critérios propóstos:
 - [ ] Começar o front end.
 - [ ] Implementação do banco de dados.
-- [ ] Fazer o gerador de números aleatórios.
+- [x] Fazer o gerador de números aleatórios.
 ## Aula 05/10
 #### Critérios propóstos:
 - [ ] Definir e implementar estatísticas que serão fornecidas.
