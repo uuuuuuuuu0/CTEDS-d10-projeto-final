@@ -1,0 +1,141 @@
+﻿<Window x:Class="Mega_Sena_Application.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mega_Sena_Application"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1080" Width="1920">
+        <!--
+            Links interessantes:
+            https://www.codeproject.com/Articles/1279852/A-Custom-WPF-Slider-Button (Slider Button for dark/light mode)
+            https://www.tutorialspoint.com/xaml/xaml_searchbox.htm (SearchBox for "Busca" section)
+            https://www.codeproject.com/Articles/101975/Building-a-Search-Text-Box-Control-with-WPF (SearchBox link 2)
+            https://learn.microsoft.com/pt-br/visualstudio/xaml-tools/organize-objects-into-layout-containers-in-xaml-designer?view=vs-2022 (Container types)
+            https://www.c-sharpcorner.com/UploadFile/mahesh/using-xaml-scrollviewer-in-wpf/ (ScrollViwer to list all the "Mega-Sena's")
+        -->
+    <Grid>
+        <StackPanel Width="1920" Height="403" Fill="#000000" VerticalAlignment="Top">
+            <!--
+            <Image 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="60"
+            Height="60"
+            />-->
+            <!-- Slider Button Here -->
+            <StackPanel Width="1920" Height="171" Fill="#262626" VerticalAlignment="Center">
+            <TextBlock 
+            HorizontalAlignment="Left"
+            FontSize="96"
+            ForegroundColor="#FFFFFF"
+            Content="Resultados"
+            />
+            <Rectangle
+            Width="10" 
+            Height="171"
+            HorizontalAlignment="Left"
+            />
+            <TextBlock 
+            HorizontalAlignment="Right"
+            FontSize="96"
+            ForegroundColor="#FFFFFF"
+            Content="Estatísticas"
+            />
+            <StackPanel>
+            <SearchBox
+            x:Name="Busca"
+            Fill="#FFFFFF"
+            ForegroundColor="#000000"
+            FontSize="40"
+            Width="820"
+            Height="80"
+            CornerRadius="10"
+            LabelText="Busca"
+            />
+        <StackPanel>
+        <StackPanel Width="1920" Height="685" Fill="#262626" VerticalAlignment="Bottom">
+            <ScrollViwer HorizontalScrollBarVisibility="Auto">
+                <StackPanel Width="1760" Height="280" Fill="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    FontSize="64"
+                    ForegroundColor="#000000"
+                    Content="Mega-Sena (id)"
+                    />
+                    <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    FontSize="64"
+                    ForegroundColor="#000000"
+                    Content="Status:Aberta"
+                    />
+                    <TextBlock
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    FontSize="64"
+                    ForegroundColor="#000000"
+                    Content="Prêmio: R$ 1.000.000,00"
+                    />
+                    <TextBlock 
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    FontSize="40"
+                    ForegroundColor="#000000"
+                    Content="Data de início: dd/mm/aaaa"
+                    />
+                    <TextBlock 
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    FontSize="40"
+                    ForegroundColor="#000000"
+                    Content="Data de início: dd/mm/aaaa"
+                    />
+                <StackPanel>
+                <StackPanel Width="1760" Height="280" Fill="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    FontSize="64"
+                    ForegroundColor="#000000"
+                    Content="Mega-Sena (id)"
+                    />
+                    <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    FontSize="64"
+                    ForegroundColor="#000000"
+                    Content="Status:Aberta"
+                    />
+                    <TextBlock
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    FontSize="64"
+                    ForegroundColor="#000000"
+                    Content="Prêmio: R$ 1.000.000,00"
+                    />
+                    <TextBlock 
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    FontSize="40"
+                    ForegroundColor="#000000"
+                    Content="Data de início: dd/mm/aaaa"
+                    />
+                    <TextBlock 
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    FontSize="40"
+                    ForegroundColor="#000000"
+                    Content="Data de início: dd/mm/aaaa"
+                    />
+                <StackPanel>
+            <ScrollViwer>
+        <StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400*"/>
+            <ColumnDefinition Width="83*"/>
+        </Grid.ColumnDefinitions>
+
+    </Grid>
+</Window>
