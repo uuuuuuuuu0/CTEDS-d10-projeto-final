@@ -13,7 +13,7 @@
             https://www.codeproject.com/Articles/101975/Building-a-Search-Text-Box-Control-with-WPF (SearchBox link 2)
         -->
     <Grid>
-        <Rectangle Width="1920" Height="403" Fill="#000000" VerticalAlignment="Top">
+        <StackPanel Width="1920" Height="403" Fill="#000000" VerticalAlignment="Top">
             <Image 
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
@@ -21,7 +21,7 @@
             Height="60"
             />
             <!-- Slider Button Here -->
-            <Rectangle Width="1920" Height="171" Fill="#262626" VerticalAlignment="Center">
+            <StackPanel Width="1920" Height="171" Fill="#262626" VerticalAlignment="Center">
             <Title 
             HorizontalAlignment="Left"
             FontSize="96"
@@ -39,7 +39,7 @@
             ForegroundColor="#FFFFFF"
             Content="Estatísticas"
             />
-            <Rectangle>
+            <StackPanel>
             <SearchBox
             x:Name="Busca"
             Fill="#FFFFFF"
@@ -50,9 +50,9 @@
             CornerRadius="10"
             LabelText="Busca"
             />
-        <Rectangle>
-        <Rectangle Width="1920" Height="685" Fill="#262626" VerticalAlignment="Bottom">
-            <Rectangle Width="1760" Height="280" Fill="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Top">
+        <StackPanel>
+        <StackPanel Width="1920" Height="685" Fill="#262626" VerticalAlignment="Bottom">
+            <StackPanel Width="1760" Height="280" Fill="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <Title
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
@@ -88,8 +88,8 @@
                 ForegroundColor="#000000"
                 Content="Data de início: dd/mm/aaaa"
                 />
-            <Rectangle>
-        <Rectangle>
+            <StackPanel>
+        <StackPanel>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400*"/>
             <ColumnDefinition Width="83*"/>
