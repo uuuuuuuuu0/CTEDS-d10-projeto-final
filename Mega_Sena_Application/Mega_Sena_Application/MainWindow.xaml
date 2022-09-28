@@ -5,8 +5,91 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mega_Sena_Application"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="1080" Width="1920">
+        <!--
+            Links interessantes:
+            https://www.codeproject.com/Articles/1279852/A-Custom-WPF-Slider-Button (Slider Button for dark/light mode)
+            https://www.tutorialspoint.com/xaml/xaml_searchbox.htm (SearchBox for "Busca" section)
+            https://www.codeproject.com/Articles/101975/Building-a-Search-Text-Box-Control-with-WPF (SearchBox link 2)
+        -->
     <Grid>
+        <Rectangle Width="1920" Height="403" Fill="#000000" VerticalAlignment="Top">
+            <Image 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="60"
+            Height="60"
+            />
+            <!-- Slider Button Here -->
+            <Rectangle Width="1920" Height="171" Fill="#262626" VerticalAlignment="Center">
+            <Title 
+            HorizontalAlignment="Left"
+            FontSize="96"
+            ForegroundColor="#FFFFFF"
+            Content="Resultados"
+            />
+            <Rectangle
+            Width="10" 
+            Height="171"
+            HorizontalAlignment="Left"
+            />
+            <Title 
+            HorizontalAlignment="Right"
+            FontSize="96"
+            ForegroundColor="#FFFFFF"
+            Content="Estatísticas"
+            />
+            <Rectangle>
+            <SearchBox
+            x:Name="Busca"
+            Fill="#FFFFFF"
+            ForegroundColor="#000000"
+            FontSize="40"
+            Width="820"
+            Height="80"
+            CornerRadius="10"
+            LabelText="Busca"
+            />
+        <Rectangle>
+        <Rectangle Width="1920" Height="685" Fill="#262626" VerticalAlignment="Bottom">
+            <Rectangle Width="1760" Height="280" Fill="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Title
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="64"
+                ForegroundColor="#000000"
+                Content="Mega-Sena (id)"
+                />
+                <Title
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                FontSize="64"
+                ForegroundColor="#000000"
+                Content="Status:Aberta"
+                />
+                <Title
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                FontSize="64"
+                ForegroundColor="#000000"
+                Content="Prêmio: R$ 1.000.000,00"
+                />
+                <TextBox 
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                FontSize="40"
+                ForegroundColor="#000000"
+                Content="Data de início: dd/mm/aaaa"
+                />
+                <TextBox 
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                FontSize="40"
+                ForegroundColor="#000000"
+                Content="Data de início: dd/mm/aaaa"
+                />
+            <Rectangle>
+        <Rectangle>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400*"/>
             <ColumnDefinition Width="83*"/>
