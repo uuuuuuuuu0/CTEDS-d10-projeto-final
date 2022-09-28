@@ -14,12 +14,14 @@
         -->
     <Grid>
         <StackPanel Width="1920" Height="403" Fill="#000000" VerticalAlignment="Top">
+            <!--
             <Image 
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Width="60"
             Height="60"
             />
+            -->
             <!-- Slider Button Here -->
             <StackPanel Width="1920" Height="171" Fill="#262626" VerticalAlignment="Center">
             <Title 
