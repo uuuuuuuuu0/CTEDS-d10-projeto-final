@@ -20,11 +20,10 @@
             VerticalAlignment="Top"
             Width="60"
             Height="60"
-            />
-            -->
+            />-->
             <!-- Slider Button Here -->
             <StackPanel Width="1920" Height="171" Fill="#262626" VerticalAlignment="Center">
-            <Title 
+            <TextBlock 
             HorizontalAlignment="Left"
             FontSize="96"
             ForegroundColor="#FFFFFF"
@@ -35,7 +34,7 @@
             Height="171"
             HorizontalAlignment="Left"
             />
-            <Title 
+            <TextBlock 
             HorizontalAlignment="Right"
             FontSize="96"
             ForegroundColor="#FFFFFF"
@@ -55,35 +54,35 @@
         <StackPanel>
         <StackPanel Width="1920" Height="685" Fill="#262626" VerticalAlignment="Bottom">
             <StackPanel Width="1760" Height="280" Fill="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Top">
-                <Title
+                <TextBlock
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 FontSize="64"
                 ForegroundColor="#000000"
                 Content="Mega-Sena (id)"
                 />
-                <Title
+                <TextBlock
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
                 FontSize="64"
                 ForegroundColor="#000000"
                 Content="Status:Aberta"
                 />
-                <Title
+                <TextBlock
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 FontSize="64"
                 ForegroundColor="#000000"
                 Content="Prêmio: R$ 1.000.000,00"
                 />
-                <TextBox 
+                <TextBlock 
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
                 FontSize="40"
                 ForegroundColor="#000000"
                 Content="Data de início: dd/mm/aaaa"
                 />
-                <TextBox 
+                <TextBlock 
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
                 FontSize="40"
