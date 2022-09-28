@@ -7,15 +7,15 @@
 - [x] Criação do protótipo de baixa fidelidade.
 ## Aula 21/09
 #### Critérios propóstos:
-- [ ] Organizar o repositório do GitHub.
-- [ ] Protótipo de alta fidelidade.
+- [x] Organizar o repositório do GitHub.
+- [x] Protótipo de alta fidelidade.
 - [x] Entender requisitos do WPF e XAML (Não temos conhecimento sobre).
-- [ ] Iniciar o back end (Camadas de controle e de modelos).
+- [x] Iniciar o back end (Camadas de controle e de modelos).
 ## Aula 28/09
 #### Critérios propóstos:
 - [ ] Começar o front end.
 - [ ] Implementação do banco de dados.
-- [ ] Fazer o gerador de números aleatórios.
+- [x] Fazer o gerador de números aleatórios.
 ## Aula 05/10
 #### Critérios propóstos:
 - [ ] Definir e implementar estatísticas que serão fornecidas.
