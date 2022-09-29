@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "gj0lfg56CiJL9loLZoB1SSRMYGG4W9T+tU+jK9w2+Suy1tGkkHoNuHBnC2NOBPdcBLWj9mDOg8aQoo9RXiHcDQ==",
+  "dgSpecHash": "dEhQ8is8r4z5qZNfZg3zFux7ryWyqTc/neUgu47Zf4t6AwVtTLpaF3jocd1dyUqhLdS5UInhanHI8KmyFp3k5w==",
   "success": true,
   "projectFilePath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\CTEDS-d10-projeto-final\\Mega_Sena_Application\\Mega_Sena_Application\\Mega_Sena_Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\bruno\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.9\\microsoft.data.sqlite.core.6.0.9.nupkg.sha512",
+    "C:\\Users\\bruno\\.nuget\\packages\\sqlitepclraw.core\\2.0.6\\sqlitepclraw.core.2.0.6.nupkg.sha512",
+    "C:\\Users\\bruno\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
   "logs": []
 }
