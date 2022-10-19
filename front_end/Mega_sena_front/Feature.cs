@@ -90,20 +90,23 @@ namespace Mega_sena_front
 
             switch (Type)
             {
-                case "Mega-Sena":
+                case "MegaSena":
                     Size = 6;
                     Max = 60;
                     Min = 1;
                     break;
 
-                case "Dupla-Sena":
+                case "DuplaSena":
                     Size = 12;
                     Max = 60;
                     Min = 1;
                     break;
 
-                case "Lotofácil":
-                    throw new ArgumentException();
+                case "Lotofacil":
+                    Size = 15;
+                    Max = 25;
+                    Min = 1;
+                    break;
 
                 case "Lotomania":
                     Size = 50;
@@ -112,7 +115,10 @@ namespace Mega_sena_front
                     break;
 
                 case "Quina":
-                    throw new ArgumentException();
+                    Size = 5;
+                    Max = 80;
+                    Min = 1;
+                    break;
 
                 default:
                     throw new ArgumentException();
