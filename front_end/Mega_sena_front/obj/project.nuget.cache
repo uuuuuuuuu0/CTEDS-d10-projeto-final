@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "crrqgjfQ3ZtmbUYz5gkKW6IwAj1Pq3MNvbkmbE76uAFnLCIhvmmxwzxkXHopLncAn+g/newW7psECTuNXPnHYw==",
+  "dgSpecHash": "s509GxuHUn6k2msXfMP1vqSUdy/OGELdybS65BhljMN71jh3wtkcrUIzzizJ5bSeHNmqm6Rudu6L3DhcUoWPSA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pepep\\VSCode\\Samsung\\D10\\front_end\\Mega_sena_front\\Mega_sena_front.csproj",
+  "projectFilePath": "C:\\Users\\pepep\\VSCode\\Samsung\\D10\\CTEDS-d10-projeto-final\\front_end\\Mega_sena_front\\Mega_sena_front.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pepep\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.10\\microsoft.data.sqlite.core.6.0.10.nupkg.sha512",
     "C:\\Users\\pepep\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.10\\microsoft.entityframeworkcore.6.0.10.nupkg.sha512",

@@ -371,8 +371,9 @@
                 HorizontalContentAlignment="Center"
                 SelectedValue="Name"
                 SelectionChanged="ComboBox_SelectionChanged">
-                <ComboBoxItem Name="MegaSena" IsSelected="True" IsEnabled="True"
-                              HorizontalAlignment="Center" Foreground="{Binding ElementName=titleColor, Path=Foreground}">Mega-Sena</ComboBoxItem>
+                <ComboBoxItem Name="MegaSena" IsSelected="True"
+                              HorizontalAlignment="Center" 
+                              Foreground="{Binding ElementName=titleColor, Path=Foreground}">Mega-Sena</ComboBoxItem>
                 <ComboBoxItem Name="Lotofacil" HorizontalAlignment="Center" 
                               Foreground="{Binding ElementName=titleColor, Path=Foreground}">Lotofácil</ComboBoxItem>
                 <ComboBoxItem Name="Quina" HorizontalAlignment="Center" 
@@ -386,11 +387,11 @@
         <Border BorderThickness="0,4,0,0" BorderBrush="#000000">
             <StackPanel Background="{Binding ElementName=mainColor, Path=Background}">
                 <TextBlock x:Name="auxDiv" VerticalAlignment="Top" Margin="0,-4,24,0" HorizontalAlignment="Right" Width="628" Height="5" Background="#262626"/>
-                <ScrollViewer x:Name="resultsWindow" Width="1600" Height="520" Background="{Binding ElementName=mainColor, Path=Background}" Visibility="Collapsed">
+                <ScrollViewer x:Name="resultsWindow" Width="1600" Height="520" Background="{Binding ElementName=mainColor, Path=Background}" Visibility="Visible">
                     <StackPanel x:Name="childrenHolder">
                     </StackPanel>
                 </ScrollViewer>
-                <ScrollViewer x:Name="statisticsWindow" Width="1600" Height="520" Visibility="Visible" Background="{Binding ElementName=mainColor}">
+                <ScrollViewer x:Name="statisticsWindow" Width="1600" Height="520" Visibility="Collapsed" Background="{Binding ElementName=mainColor}">
                     <Border CornerRadius="30" BorderThickness="0">
                         <Button Content="Gerar números aleatórios"
                             Background="#FFFFFF"

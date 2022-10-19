@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pepep\\VSCode\\Samsung\\D10\\front_end\\Mega_sena_front\\Mega_sena_front.csproj": {}
+    "C:\\Users\\pepep\\VSCode\\Samsung\\D10\\CTEDS-d10-projeto-final\\front_end\\Mega_sena_front\\Mega_sena_front.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pepep\\VSCode\\Samsung\\D10\\front_end\\Mega_sena_front\\Mega_sena_front.csproj": {
+    "C:\\Users\\pepep\\VSCode\\Samsung\\D10\\CTEDS-d10-projeto-final\\front_end\\Mega_sena_front\\Mega_sena_front.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pepep\\VSCode\\Samsung\\D10\\front_end\\Mega_sena_front\\Mega_sena_front.csproj",
+        "projectUniqueName": "C:\\Users\\pepep\\VSCode\\Samsung\\D10\\CTEDS-d10-projeto-final\\front_end\\Mega_sena_front\\Mega_sena_front.csproj",
         "projectName": "Mega_sena_front",
-        "projectPath": "C:\\Users\\pepep\\VSCode\\Samsung\\D10\\front_end\\Mega_sena_front\\Mega_sena_front.csproj",
+        "projectPath": "C:\\Users\\pepep\\VSCode\\Samsung\\D10\\CTEDS-d10-projeto-final\\front_end\\Mega_sena_front\\Mega_sena_front.csproj",
         "packagesPath": "C:\\Users\\pepep\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pepep\\VSCode\\Samsung\\D10\\front_end\\Mega_sena_front\\obj\\",
+        "outputPath": "C:\\Users\\pepep\\VSCode\\Samsung\\D10\\CTEDS-d10-projeto-final\\front_end\\Mega_sena_front\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
