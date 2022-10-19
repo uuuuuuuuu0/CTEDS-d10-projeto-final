@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mega_sena_front
 {
-    internal class Feature
+    internal public class Feature
     {
         public static int[] GenerateSequence(string Type, int n)
         {
@@ -16,19 +16,19 @@ namespace Mega_sena_front
 
             switch (Type)
             {
-                case "Mega-Sena":
+                case "MegaSena":
                     Size = 6;
                     Max = 60;
                     Min = 1;
                     break;
 
-                case "Dupla-Sena":
+                case "DuplaSena":
                     Size = 12;
                     Max = 60;
                     Min = 1;
                     break;
 
-                case "Lotofácil":
+                case "Lotofacil":
                     Size = n; //n from 15 to 18 
                     Max = 25;
                     Min = 1;
@@ -58,7 +58,28 @@ namespace Mega_sena_front
             {
                 Sequence[i] = r.Next(Min, Max);
             }
-            return Sequence;
+
+            int[] SortSequence = new int[Size];
+            bool[] AlreadyRead = new bool[Size];
+
+            for (int i = 0; i < Size; i++) AlreadyRead[i] = false;
+
+            for (int i = 0; i < Size; i++)
+            {
+                int smallest = 200;
+                int smallestPos = 0;
+                for (int j = 0; j < Size; j++)
+                {
+                    if (!AlreadyRead[j] && Sequence[j] < smallest)
+                    {
+                        smallest = Sequence[j];
+                        smallestPos = j;
+                    }
+                }
+                AlreadyRead[smallestPos] = true;
+                SortSequence[i] = smallest;
+            }
+            return SortSequence;
         }
 
         public static int[] GenerateSequence(string Type)
@@ -106,10 +127,31 @@ namespace Mega_sena_front
                 Sequence[i] = r.Next(Min, Max);
             }
 
-            return Sequence;
+            int[] SortSequence = new int[Size];
+            bool[] AlreadyRead = new bool[Size];
+
+            for (int i = 0; i < Size; i++) AlreadyRead[i] = false;
+
+            for (int i = 0; i < Size; i++)
+            {
+                int smallest = 200;
+                int smallestPos = 0;
+                for (int j = 0; j < Size; j++)
+                {
+                    if (!AlreadyRead[j] && Sequence[j] < smallest)
+                    {
+                        smallest = Sequence[j];
+                        smallestPos = j;
+                    }
+                }
+                AlreadyRead[smallestPos] = true;
+                SortSequence[i] = smallest;
+            }
+
+            return SortSequence;
         }
 
-        int[] ConvertSequence (string result)
+        public static int[] ConvertSequence (string result)
         {
             int[] sequence = new int[(result.Length)/2];
             for (int i = 0; i < result.Length/2; i++)
@@ -118,6 +160,131 @@ namespace Mega_sena_front
                 sequence[i] += result[2 * i + 1] - 48;
             }
             return sequence;
+        }
+
+        public static MegaSena[] SortByPrize(MegaSena[] games)
+        {
+            MegaSena[] SortGames = new MegaSena[games.Length];
+            bool[] AlreadyRead = new bool[games.Length];
+
+            for (int i = 0; i < games.Length; i++) AlreadyRead[i] = false;
+
+            for (int i = 0; i < games.Length; i++)
+            {
+                double? biggest = 0;
+                int biggestPos = 0;
+                for (int j = 0; j < games.Length; j++)
+                {
+                    if (!AlreadyRead[j] && games[j].Prize > biggest)
+                    {
+                        biggest = games[j].Prize;
+                        biggestPos = j;
+                    }
+                }
+                AlreadyRead[biggestPos] = true;
+                SortGames[i] = games[biggestPos];
+            }
+            return SortGames;
+        }
+
+        public static DuplaSena[] SortByPrize(DuplaSena[] games)
+        {
+            DuplaSena[] SortGames = new DuplaSena[games.Length];
+            bool[] AlreadyRead = new bool[games.Length];
+
+            for (int i = 0; i < games.Length; i++) AlreadyRead[i] = false;
+
+            for (int i = 0; i < games.Length; i++)
+            {
+                double? biggest = 0;
+                int biggestPos = 0;
+                for (int j = 0; j < games.Length; j++)
+                {
+                    if (!AlreadyRead[j] && games[j].Prize > biggest)
+                    {
+                        biggest = games[j].Prize;
+                        biggestPos = j;
+                    }
+                }
+                AlreadyRead[biggestPos] = true;
+                SortGames[i] = games[biggestPos];
+            }
+            return SortGames;
+        }
+
+        public static LotoFacil[] SortByPrize(LotoFacil[] games)
+        {
+            LotoFacil[] SortGames = new LotoFacil[games.Length];
+            bool[] AlreadyRead = new bool[games.Length];
+
+            for (int i = 0; i < games.Length; i++) AlreadyRead[i] = false;
+
+            for (int i = 0; i < games.Length; i++)
+            {
+                double? biggest = 0;
+                int biggestPos = 0;
+                for (int j = 0; j < games.Length; j++)
+                {
+                    if (!AlreadyRead[j] && games[j].Prize > biggest)
+                    {
+                        biggest = games[j].Prize;
+                        biggestPos = j;
+                    }
+                }
+                AlreadyRead[biggestPos] = true;
+                SortGames[i] = games[biggestPos];
+            }
+            return SortGames;
+        }
+
+        public static Lotomania[] SortByPrize(Lotomania[] games)
+        {
+            Lotomania[] SortGames = new Lotomania[games.Length];
+            bool[] AlreadyRead = new bool[games.Length];
+
+            for (int i = 0; i < games.Length; i++) AlreadyRead[i] = false;
+
+            for (int i = 0; i < games.Length; i++)
+            {
+                double? biggest = 0;
+                int biggestPos = 0;
+                for (int j = 0; j < games.Length; j++)
+                {
+                    if (!AlreadyRead[j] && games[j].Prize > biggest)
+                    {
+                        biggest = games[j].Prize;
+                        biggestPos = j;
+                    }
+                }
+                AlreadyRead[biggestPos] = true;
+                SortGames[i] = games[biggestPos];
+            }
+            return SortGames;
+        }
+
+        public static Quina[] SortByPrize(Quina[] games)
+        {
+            Quina[] SortGames = new Quina[games.Length];
+            bool[] AlreadyRead = new bool[games.Length];
+
+            for (int i = 0; i < games.Length; i++) AlreadyRead[i] = false;
+
+            for (int i = 0; i < games.Length; i++)
+            {
+                double? biggest = 0;
+                int biggestPos = 0;
+                for (int j = 0; j < games.Length; j++)
+                {
+                    if (!AlreadyRead[j] && games[j].Prize > biggest)
+                    {
+                        biggest = games[j].Prize;
+                        biggestPos = j;
+                    }
+                }
+                AlreadyRead[biggestPos] = true;
+                SortGames[i] = games[biggestPos];
+            }
+            return SortGames;
         }
     }
 }
