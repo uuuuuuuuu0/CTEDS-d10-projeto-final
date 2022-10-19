@@ -475,7 +475,8 @@ namespace Mega_sena_front
 
         private void RandomNumber_Click(object sender, RoutedEventArgs e)
         {
-
+            randomNumber.Foreground = blackColor;
+            randomNumber.Content = "01 02 03 04 05 06";
         }
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)

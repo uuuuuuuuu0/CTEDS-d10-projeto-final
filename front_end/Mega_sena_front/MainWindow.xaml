@@ -387,12 +387,12 @@
         <Border BorderThickness="0,4,0,0" BorderBrush="#000000">
             <StackPanel Background="{Binding ElementName=mainColor, Path=Background}">
                 <TextBlock x:Name="auxDiv" VerticalAlignment="Top" Margin="0,-4,24,0" HorizontalAlignment="Right" Width="628" Height="5" Background="#262626"/>
-                <ScrollViewer x:Name="resultsWindow" Width="1600" Height="520" Background="{Binding ElementName=mainColor, Path=Background}" Visibility="Visible">
+                <ScrollViewer x:Name="resultsWindow" Width="1600" Height="520" Background="{Binding ElementName=mainColor, Path=Background}" Visibility="Collapsed">
                     <StackPanel x:Name="childrenHolder">
                     </StackPanel>
                 </ScrollViewer>
-                <ScrollViewer x:Name="statisticsWindow" Width="1600" Height="520" Visibility="Collapsed" Background="{Binding ElementName=mainColor}">
-                    <Border CornerRadius="30" BorderThickness="0">
+                <ScrollViewer x:Name="statisticsWindow" Width="1600" Height="520" Visibility="Visible" Background="{Binding ElementName=mainColor}">
+                    <Grid Width="1600">
                         <Button Content="Gerar números aleatórios"
                             Background="#FFFFFF"
                             Foreground="#000000"
@@ -406,7 +406,21 @@
                             Cursor="Hand"
                             Click="RandomNumber_Click"
                             />
-                    </Border>
+                        <Button
+                            x:Name="randomNumber"
+                            Margin="0,40,64,0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                            FontSize="32"
+                            BorderThickness="0"
+                            Width="800"
+                            Height="100"
+                            Cursor="Hand"
+                            Background="#FFFFFF"
+                            Foreground="#494949"
+                            Content="XX XX XX XX XX XX"
+                            />
+                    </Grid>
                 </ScrollViewer>
             </StackPanel>
         </Border>
