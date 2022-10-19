@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mega_sena_front
 {
-    internal public class Feature
+    public class Feature
     {
         public static int[] GenerateSequence(string Type, int n)
         {
