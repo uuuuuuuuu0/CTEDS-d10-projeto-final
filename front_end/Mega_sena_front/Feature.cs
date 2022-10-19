@@ -90,7 +90,7 @@ namespace Mega_sena_front
 
             switch (Type)
             {
-                case "Mega-Sena":
+                case "MegaSena":
                     Size = 6;
                     Max = 60;
                     Min = 1;
@@ -102,8 +102,11 @@ namespace Mega_sena_front
                     Min = 1;
                     break;
 
-                case "Lotofácil":
-                    throw new ArgumentException();
+                case "Lotofacil":
+                    Size = 50;
+                    Max = 99;
+                    Min = 0;
+                    break;
 
                 case "Lotomania":
                     Size = 50;

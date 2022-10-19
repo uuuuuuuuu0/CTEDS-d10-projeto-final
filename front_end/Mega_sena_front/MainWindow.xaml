@@ -420,6 +420,22 @@
                             Foreground="#494949"
                             Content="XX XX XX XX XX XX"
                             />
+                        <TextBlock x:Name="titleTwo"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left"
+                                   Margin="64,172,0,0"
+                                   FontSize="40"
+                                   Foreground="#FFFFFF"
+                                   Width="300"
+                                   Height="100"
+                                   TextAlignment="Center"> Maiores Prêmios</TextBlock>
+
+                        <StackPanel x:Name="childHolderTwo"
+                                    Margin="0,240,0,0"
+                                    Width="1600"
+                                    Height="800"
+                                    >
+                        </StackPanel>
                     </Grid>
                 </ScrollViewer>
             </StackPanel>
