@@ -1,0 +1,414 @@
+﻿<Window x:Class="Mega_sena_front.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mega_sena_front"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="1616">
+    <!--
+            Links interessantes:
+            https://www.youtube.com/watch?v=5oz2zJF_jM4 (Slider button for theme change)
+            https://www.tutorialspoint.com/xaml/xaml_searchbox.htm (SearchBox for "Busca" section)
+            https://www.codeproject.com/Articles/101975/Building-a-Search-Text-Box-Control-with-WPF (SearchBox link 2)
+            https://learn.microsoft.com/pt-br/visualstudio/xaml-tools/organize-objects-into-layout-containers-in-xaml-designer?view=vs-2022 (Container types)
+            https://www.c-sharpcorner.com/UploadFile/mahesh/using-xaml-scrollviewer-in-wpf/ (ScrollViwer to list all the "Mega-Sena's")
+            https://www.youtube.com/watch?v=qnDf1-Qzc8Y (Reference class for controls)
+        -->
+    <Window.Resources>
+        <!-- Theme button -->
+        <Style TargetType="CheckBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <StackPanel>
+                            <Grid>
+                                <Border x:Name="buttonBackground"
+                                        Width="96"
+                                        Height="46"
+                                        Background="#D9D9D9"
+                                        CornerRadius="24"
+                                        Margin="0,0">
+                                </Border>
+                                <Border x:Name="button"
+                                        Width="44"
+                                        Height="40"
+                                        CornerRadius="30"
+                                        HorizontalAlignment="Left"
+                                        Margin="4,0,0,0">
+                                </Border>
+                            </Grid>
+                            <ContentPresenter x:Name="content"
+                                              Margin="10,0,10,0"
+                                              Content="{TemplateBinding Content}"
+                                              VerticalAlignment="center">
+                            </ContentPresenter>
+                        </StackPanel>
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="right">
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                    Storyboard.TargetName="button"
+                                                    Duration="0:0:0.25"
+                                                    From="4,0,0,0"
+                                                    To="48,0,0,0">
+                                </ThicknessAnimation>
+                            </Storyboard>
+                            <Storyboard x:Key="left">
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                    Storyboard.TargetName="button"
+                                                    Duration="0:0:0.25"
+                                                    From="48,0,0,0"
+                                                    To="4,0,0,0">
+                                </ThicknessAnimation>
+                            </Storyboard>
+                        </ControlTemplate.Resources>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Trigger.ExitActions>
+                                    <RemoveStoryboard BeginStoryboardName="left">
+                                    </RemoveStoryboard>
+                                    <BeginStoryboard Storyboard="{StaticResource right}" x:Name="right">
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                                <Setter TargetName="button"
+                                        Property="Background"
+                                        Value="#707070">
+                                </Setter>
+                                <Setter TargetName="buttonBackground"
+                                        Property="Background"
+                                        Value="#D9D9D9">
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Trigger.ExitActions>
+                                    <RemoveStoryboard BeginStoryboardName="right">
+                                    </RemoveStoryboard>
+                                    <BeginStoryboard Storyboard="{StaticResource left}" x:Name="left">
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                                <Setter TargetName="button"
+                                        Property="Background"
+                                        Value="White">
+                                </Setter>
+                                <Setter TargetName="buttonBackground"
+                                        Property="Background"
+                                        Value="#363636">
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- Theme button -->
+        <!-- Rounded textbox corners -->
+        <Style TargetType="{x:Type TextBox}">
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Style.Resources>
+        </Style>
+        <!-- Rounded textbox corners -->
+        <!-- Style for the ComboBox -->
+        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="88" />
+                </Grid.ColumnDefinitions>
+                <!-- Here -->
+                <Border
+                  x:Name="Border" 
+                  Grid.ColumnSpan="2"
+                  CornerRadius="10,10,0,0"
+                  Background="{Binding ElementName=DropDownBorder, Path=Background}" 
+                  BorderThickness="0,4,4,0"
+                  BorderBrush="#000000"/>
+                <!-- Here -->
+                <Border 
+                  Grid.Column="0"
+                  CornerRadius="10,0,0,0" 
+                  Margin="0" 
+                  Background="{Binding ElementName=DropDownBorder, Path=Background}"
+                  BorderThickness="4,4,0,0"
+                  BorderBrush="#000000"/>
+                <Path 
+                  x:Name="Arrow"
+                  Grid.Column="1"     
+                  Fill="{Binding ElementName=PART_EditableTextBox, Path=Foreground}"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Data="M0,0 L0,10 L20,30 L40,10 L40,0 L20,20 z"
+                />
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
+            <Border x:Name="PART_ContentHost" Focusable="False" Background="{TemplateBinding Background}" />
+        </ControlTemplate>
+
+        <Style x:Key="{x:Type ComboBox}" TargetType="{x:Type ComboBox}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="MinWidth" Value="120"/>
+            <Setter Property="MinHeight" Value="20"/>
+            <Setter Property="Foreground" Value="{Binding ElementName=DropDownBorder, Path=Background}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBox}">
+                        <Grid>
+                            <ToggleButton
+                            Name="ToggleButton" 
+                            Template="{StaticResource ComboBoxToggleButton}" 
+                            Grid.Column="2" 
+                            Focusable="false"
+                            IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+                            ClickMode="Press">
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite" IsHitTestVisible="False"  Content="{TemplateBinding SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                            Margin="3,3,23,3"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left" />
+                            <TextBox x:Name="PART_EditableTextBox"
+                            Style="{x:Null}" 
+                            Template="{StaticResource ComboBoxTextBox}" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            Margin="3,3,23,3"
+                            Focusable="True" 
+                            Background="{Binding ElementName=DropDownBorder, Path=Background}"
+                            Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, 
+                                             Path=Foreground}"
+                            Visibility="Hidden"
+                            IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup 
+                            Name="Popup"
+                            Placement="Bottom"
+                            IsOpen="{TemplateBinding IsDropDownOpen}"
+                            AllowsTransparency="True" 
+                            Focusable="False"
+                            PopupAnimation="Slide">
+
+                                <Grid Name="DropDown"
+                              SnapsToDevicePixels="True"                
+                              MinWidth="{TemplateBinding ActualWidth}"
+                              MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <!-- Here -->
+                                    <Border
+                                x:Name="DropDownBorder"
+                                Background="{Binding RelativeSource={RelativeSource TemplatedParent}, 
+                                             Path=Background}"
+                                BorderThickness="4,0,4,4" 
+                                BorderBrush="#000000"/>
+                                    <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasItems" Value="false">
+                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#888888"/>
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </Trigger>
+                            <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="true">
+                                <Setter TargetName="DropDownBorder" Property="CornerRadius" Value="0"/>
+                                <Setter TargetName="DropDownBorder" Property="Margin" Value="0,2,0,0"/>
+                            </Trigger>
+                            <Trigger Property="IsEditable"  Value="true">
+                                <Setter Property="IsTabStop" Value="false"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+            </Style.Triggers>
+        </Style>
+
+        <!-- SimpleStyles: ComboBoxItem -->
+        <Style x:Key="{x:Type ComboBoxItem}" TargetType="{x:Type ComboBoxItem}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, 
+                                             Path=Foreground}"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                        <Border Name="Border"
+                              Padding="2"
+                              SnapsToDevicePixels="true">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="#FF4F4F4F"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#888888"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- Style for the ComboBox -->
+
+    </Window.Resources>
+    <StackPanel Width="1600" Height="900">
+        <StackPanel x:Name="secondColor" Width="1600" Height="76" Background="#000000" VerticalAlignment="Top">
+            <CheckBox HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,15,16,15" Checked="ChangingToLight" Unchecked="ChangingToDark">
+            </CheckBox>
+        </StackPanel>
+        <Border x:Name="titleBorder"  BorderBrush="#000000" BorderThickness="0,0,0,0">
+            <Grid x:Name="mainColor"  Width="1600" Height="128" Background="#262626" HorizontalAlignment="Center">
+                <Button 
+                x:Name="titleColor"
+                Margin="46,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontSize="64"
+                Cursor="Hand"
+                BorderThickness="0"
+                Background="#262626"
+                Foreground="#FFFFFF"
+                Content="Resultados" Click="Results_Click">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ThicknessAnimation Storyboard.TargetName="titleSeparator"
+                                                      Storyboard.TargetProperty="Margin"
+                                                      Duration="0:0:0.25"
+                                                      From="1165,0,0,0"
+                                                      To="435,0,0,0">
+                                    </ThicknessAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Rectangle
+                x:Name="titleSeparator"
+                Margin="435,0,0,0"
+                Fill ="#000000"
+                Width="10" 
+                Height="128"
+                HorizontalAlignment="Left"
+                >
+                </Rectangle>
+                <Button 
+                Margin="1249,0,0,21"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontSize="64"
+                Cursor="Hand"
+                BorderThickness="0"
+                Background="{Binding ElementName=titleColor, Path=Background}"
+                Foreground="{Binding ElementName=titleColor, Path=Foreground}"
+                Content="Estatísticas" Click="Events_Click">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ThicknessAnimation Storyboard.TargetName="titleSeparator"
+                                                      Storyboard.TargetProperty="Margin"
+                                                      Duration="0:0:0.25"
+                                                      From="585,0,0,0"
+                                                      To="1165,0,0,0">
+                                    </ThicknessAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+            </Grid>
+        </Border>
+        <Grid Width="1600" Height="156" Background="{Binding ElementName=secondColor, Path=Background}">
+            <TextBox
+                x:Name="Busca"
+                BorderThickness="4"
+                BorderBrush="#FFFFFF"
+                Margin="120, 36, 0, 36"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left"
+                Background="#FFFFFF"
+                Foreground="#000001"
+                FontSize="32"
+                TextAlignment="Center"
+                Width="600"
+                Height="80"
+                GotKeyboardFocus="kbFocus"
+                LostKeyboardFocus="KbLostFocus"
+                />
+            <ComboBox 
+                x:Name="cbBox"
+                Margin="0,0,20,0" 
+                IsEditable="True" 
+                IsReadOnly="True" 
+                Height="128" 
+                Width="636" 
+                Background="{Binding ElementName=mainColor, Path=Background}"
+                Foreground="{Binding ElementName=titleColor, Path=Foreground}"
+                VerticalAlignment="Bottom" 
+                HorizontalAlignment="Right" 
+                FontSize="40"
+                VerticalContentAlignment="Center" 
+                HorizontalContentAlignment="Center"
+                SelectedValue="Name"
+                SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem Name="MegaSena" IsSelected="True" IsEnabled="True"
+                              HorizontalAlignment="Center" Foreground="{Binding ElementName=titleColor, Path=Foreground}">Mega-Sena</ComboBoxItem>
+                <ComboBoxItem Name="Lotofacil" HorizontalAlignment="Center" 
+                              Foreground="{Binding ElementName=titleColor, Path=Foreground}">Lotofácil</ComboBoxItem>
+                <ComboBoxItem Name="Quina" HorizontalAlignment="Center" 
+                              Foreground="{Binding ElementName=titleColor, Path=Foreground}">Quina</ComboBoxItem>
+                <ComboBoxItem Name="Lotomania" HorizontalAlignment="Center" 
+                              Foreground="{Binding ElementName=titleColor, Path=Foreground}">Lotomania</ComboBoxItem>
+                <ComboBoxItem Name="DuplaSena" HorizontalAlignment="Center" 
+                              Foreground="{Binding ElementName=titleColor, Path=Foreground}">Dupla Sena</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <Border BorderThickness="0,4,0,0" BorderBrush="#000000">
+            <StackPanel Background="{Binding ElementName=mainColor, Path=Background}">
+                <TextBlock x:Name="auxDiv" VerticalAlignment="Top" Margin="0,-4,24,0" HorizontalAlignment="Right" Width="628" Height="5" Background="#262626"/>
+                <ScrollViewer x:Name="resultsWindow" Width="1600" Height="520" Background="{Binding ElementName=mainColor, Path=Background}" Visibility="Collapsed">
+                    <StackPanel x:Name="childrenHolder">
+                    </StackPanel>
+                </ScrollViewer>
+                <ScrollViewer x:Name="statisticsWindow" Width="1600" Height="520" Visibility="Visible" Background="{Binding ElementName=mainColor}">
+                    <Border CornerRadius="30" BorderThickness="0">
+                        <Button Content="Gerar números aleatórios"
+                            Background="#FFFFFF"
+                            Foreground="#000000"
+                            FontSize="32"
+                            BorderThickness="0"
+                            Margin="40,40,0,0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Width="600"
+                            Height="100"
+                            Cursor="Hand"
+                            Click="RandomNumber_Click"
+                            />
+                    </Border>
+                </ScrollViewer>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</Window>
+
