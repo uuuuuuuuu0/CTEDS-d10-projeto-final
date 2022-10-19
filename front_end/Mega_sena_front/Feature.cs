@@ -96,16 +96,22 @@ namespace Mega_sena_front
                     Min = 1;
                     break;
 
-                case "Dupla-Sena":
+                case "DuplaSena":
                     Size = 12;
                     Max = 60;
                     Min = 1;
                     break;
 
                 case "Lotofacil":
+<<<<<<< HEAD
                     Size = 50;
                     Max = 99;
                     Min = 0;
+=======
+                    Size = 15;
+                    Max = 25;
+                    Min = 1;
+>>>>>>> 6704c1fa923092dbd178fdcda8c716068ddae09b
                     break;
 
                 case "Lotomania":
@@ -115,7 +121,10 @@ namespace Mega_sena_front
                     break;
 
                 case "Quina":
-                    throw new ArgumentException();
+                    Size = 5;
+                    Max = 80;
+                    Min = 1;
+                    break;
 
                 default:
                     throw new ArgumentException();
