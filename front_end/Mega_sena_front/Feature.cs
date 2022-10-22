@@ -59,6 +59,24 @@ namespace Mega_sena_front
                 Sequence[i] = r.Next(Min, Max);
             }
 
+            bool done = false;
+
+            while (!done)
+            {
+                done = true;
+                for (int i = 0; i < Sequence.Length; i++)
+                {
+                    for (int j = i + 1; j < Sequence.Length; j++)
+                    {
+                        if (Sequence[i] == Sequence[j])
+                        {
+                            Sequence[j] = r.Next(Min, Max);
+                            done = false;
+                        }
+                    }
+                }
+            }
+
             int[] SortSequence = new int[Size];
             bool[] AlreadyRead = new bool[Size];
 
@@ -103,15 +121,9 @@ namespace Mega_sena_front
                     break;
 
                 case "Lotofacil":
-<<<<<<< HEAD
-                    Size = 50;
-                    Max = 99;
-                    Min = 0;
-=======
                     Size = 15;
                     Max = 25;
                     Min = 1;
->>>>>>> 6704c1fa923092dbd178fdcda8c716068ddae09b
                     break;
 
                 case "Lotomania":
@@ -137,6 +149,24 @@ namespace Mega_sena_front
             for (int i = 0; i < Size; i++)
             {
                 Sequence[i] = r.Next(Min, Max);
+            }
+
+            bool done = false;
+
+            while (!done)
+            {
+                done = true;
+                for (int i = 0; i < Sequence.Length; i++)
+                {
+                    for (int j = i+1; j < Sequence.Length; j++)
+                    {
+                        if (Sequence[i] == Sequence[j])
+                        {
+                            Sequence[j] = r.Next(Min, Max);
+                            done = false;
+                        }
+                    }
+                }
             }
 
             int[] SortSequence = new int[Size];
