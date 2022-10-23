@@ -92,7 +92,7 @@ namespace Mega_sena_front.Data
                 }
                 else lastDay = 28;
 
-                int[] result = Feature.GenerateSequence("Lotofacil", 20);
+                int[] result = Feature.GenerateSequence("Lotofacil", 15);
 
                 string resultStr = "";
 
