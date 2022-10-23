@@ -684,5 +684,10 @@ namespace Mega_sena_front
             randomNumber.Content = ran;
 
         }
+
+        private void clipBoard_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetDataObject(randomNumber.Content);
+        }
     }
 }

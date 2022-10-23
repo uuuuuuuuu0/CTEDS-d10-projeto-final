@@ -408,19 +408,36 @@
                             />
                         <Button
                             x:Name="randomNumber"
-                            Margin="0,40,64,0"
+                            Margin="0,40,196,0"
                             VerticalAlignment="Top"
                             HorizontalAlignment="Right"
                             FontSize="32"
                             BorderThickness="0"
-                            Width="800"
+                            Width="672"
                             Height="100"
                             Cursor="Hand"
                             Background="#FFFFFF"
                             Foreground="#494949"
                             Content="XX XX XX XX XX XX"
                             />
-                        <TextBlock x:Name="titleTwo"
+
+                        <Button
+                            x:Name="clipBoard"
+                            Margin="0,40,64,0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                            FontSize="32"
+                            BorderThickness="0"
+                            Width="100"
+                            Height="100"
+                            Cursor="Hand"
+                            Background="#FFFFFF"
+                            Foreground="#494949"
+                            Click="clipBoard_Click">
+                            <Image Width="64" Source="img/clipboard2.png" />
+                            </Button>
+
+                            <TextBlock x:Name="titleTwo"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Left"
                                    Margin="64,172,0,0"
