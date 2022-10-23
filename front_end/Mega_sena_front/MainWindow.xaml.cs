@@ -306,7 +306,7 @@ namespace Mega_sena_front
                     if (childHolderTwo != null)
                     {
                         childHolderTwo.Children.Clear();
-                        MegaSena[] megaSenass = new MegaSena[3];
+                        MegaSena[] megaSenass = new MegaSena[context.quinas.Count(t => t.Id == '1')];
                         int i = 0;
                         foreach (MegaSena m in context.megaSenas)
                         {
@@ -689,7 +689,7 @@ namespace Mega_sena_front
                             grid.VerticalAlignment = VerticalAlignment.Top;
 
                             TextBlock nameTextBlock = new();
-                            nameTextBlock.Text = "Mega-Sena (" + quina.Id + ")";
+                            nameTextBlock.Text = "Quina (" + quina.Id + ")";
                             nameTextBlock.Margin = new Thickness(46, 30, 0, 0);
                             nameTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
                             nameTextBlock.VerticalAlignment = VerticalAlignment.Top;
@@ -754,7 +754,7 @@ namespace Mega_sena_front
                     if (childrenHolder != null)
                     {
                         childrenHolder.Children.Clear();
-                        foreach (MegaSena megaSena in context.megaSenas)
+                        foreach (Lotomania lotomania in context.lotomanias)
                         {
                             Grid fillerGrid = new();
                             fillerGrid.Height = 40;
@@ -769,7 +769,7 @@ namespace Mega_sena_front
                             grid.VerticalAlignment = VerticalAlignment.Top;
 
                             TextBlock nameTextBlock = new();
-                            nameTextBlock.Text = "Mega-Sena (" + megaSena.Id + ")";
+                            nameTextBlock.Text = "Lotomania (" + lotomania.Id + ")";
                             nameTextBlock.Margin = new Thickness(46, 30, 0, 0);
                             nameTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
                             nameTextBlock.VerticalAlignment = VerticalAlignment.Top;
@@ -777,22 +777,37 @@ namespace Mega_sena_front
                             nameTextBlock.Foreground = blackColor;
                             grid.Children.Add(nameTextBlock);
                             TextBlock statusTextBlock = new();
-                            statusTextBlock.Text = "Status: " + megaSena.Status;
+                            statusTextBlock.Text = "Status: " + lotomania.Status;
                             statusTextBlock.Margin = new Thickness(46, 0, 0, 64);
                             statusTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
                             statusTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
                             statusTextBlock.FontSize = 24;
                             statusTextBlock.Foreground = blackColor;
                             grid.Children.Add(statusTextBlock);
-                            if (megaSena.Result != null)
+                            if (lotomania.Result != null)
                             {
                                 TextBlock resultTextBlock = new();
-                                resultTextBlock.Text = "Números: " + megaSena.Result[0] + megaSena.Result[1] + " " +
-                                                                       megaSena.Result[2] + megaSena.Result[3] + " " +
-                                                                       megaSena.Result[4] + megaSena.Result[5] + " " +
-                                                                       megaSena.Result[6] + megaSena.Result[7] + " " +
-                                                                       megaSena.Result[8] + megaSena.Result[9] + " " +
-                                                                       megaSena.Result[10] + megaSena.Result[11];
+                                resultTextBlock.Text = "Números: " + lotomania.Result[0] + lotomania.Result[1] + " " +
+                                                                       lotomania.Result[2] + lotomania.Result[3] + " " +
+                                                                       lotomania.Result[4] + lotomania.Result[5] + " " +
+                                                                       lotomania.Result[6] + lotomania.Result[7] + " " +
+                                                                       lotomania.Result[8] + lotomania.Result[9] + " " +
+                                                                       lotomania.Result[10] + lotomania.Result[11] + " " +
+                                                                       lotomania.Result[12] + lotomania.Result[13] + " " +
+                                                                       lotomania.Result[14] + lotomania.Result[15] + " " +
+                                                                       lotomania.Result[16] + lotomania.Result[17] + " " +
+                                                                       lotomania.Result[18] + lotomania.Result[19] + " " +
+                                                                       lotomania.Result[20] + lotomania.Result[21] + " " +
+                                                                       lotomania.Result[22] + lotomania.Result[23] + " " +
+                                                                       lotomania.Result[24] + lotomania.Result[25] + " " +
+                                                                       lotomania.Result[26] + lotomania.Result[27] + " " +
+                                                                       lotomania.Result[28] + lotomania.Result[29] + " " +
+                                                                       lotomania.Result[30] + lotomania.Result[31] + " " +
+                                                                       lotomania.Result[32] + lotomania.Result[33] + " " +
+                                                                       lotomania.Result[34] + lotomania.Result[35] + " " +
+                                                                       lotomania.Result[36] + lotomania.Result[37] + " " +
+                                                                       lotomania.Result[38] + lotomania.Result[39];
+                                                                       
                                 resultTextBlock.Margin = new Thickness(46, 0, 0, 26);
                                 resultTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
                                 resultTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
@@ -802,7 +817,7 @@ namespace Mega_sena_front
 
                             }
                             TextBlock prizeTextBlock = new();
-                            prizeTextBlock.Text = "Prêmio: R$" + String.Format("{0:0.00}", megaSena.Prize);
+                            prizeTextBlock.Text = "Prêmio: R$" + String.Format("{0:0.00}", lotomania.Prize);
                             prizeTextBlock.Margin = new Thickness(0, 30, 46, 0);
                             prizeTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
                             prizeTextBlock.VerticalAlignment = VerticalAlignment.Top;
@@ -810,7 +825,7 @@ namespace Mega_sena_front
                             prizeTextBlock.Foreground = blackColor;
                             grid.Children.Add(prizeTextBlock);
                             TextBlock startDateTextBlock = new();
-                            startDateTextBlock.Text = "Data de Início: " + megaSena.StartTime.ToString("dd/MM/yyyy");
+                            startDateTextBlock.Text = "Data de Início: " + lotomania.StartTime.ToString("dd/MM/yyyy");
                             startDateTextBlock.Margin = new Thickness(0, 0, 46, 26);
                             startDateTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
                             startDateTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
@@ -818,7 +833,7 @@ namespace Mega_sena_front
                             startDateTextBlock.Foreground = blackColor;
                             grid.Children.Add(startDateTextBlock);
                             TextBlock endDateTextBlock = new();
-                            endDateTextBlock.Text = "Data de Início: " + megaSena.EndTime.ToString("dd/MM/yyyy");
+                            endDateTextBlock.Text = "Data de Início: " + lotomania.EndTime.ToString("dd/MM/yyyy");
                             endDateTextBlock.Margin = new Thickness(0, 0, 46, 64);
                             endDateTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
                             endDateTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
@@ -830,21 +845,21 @@ namespace Mega_sena_front
                             childrenHolder.Children.Add(fillerGrid);
                         }
                         randomNumber.Foreground = grayColor;
-                        randomNumber.Content = "XX XX XX XX XX XX";
+                        randomNumber.Content = "XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX";
                     }
                     if (childHolderTwo != null)
                     {
                         childHolderTwo.Children.Clear();
-                        MegaSena[] megaSenass = new MegaSena[3];
+                        Lotomania[] lotomanias = new Lotomania[context.lotomanias.Count(t => t.Id == '1')];
                         int i = 0;
-                        foreach (MegaSena m in context.megaSenas)
+                        foreach (Lotomania m in context.lotomanias)
                         {
-                            megaSenass[i] = m;
+                            lotomanias[i] = m;
                             i++;
                         }
-                        MegaSena[] megaSenasss = Feature.SortByPrize(megaSenass);
+                        Lotomania[] lotomaniass = Feature.SortByPrize(lotomanias);
 
-                        foreach (MegaSena megaSena in megaSenasss)
+                        foreach (Lotomania lotomania in lotomaniass)
                         {
                             Grid fillerGrid = new();
                             fillerGrid.Height = 40;
@@ -859,7 +874,7 @@ namespace Mega_sena_front
                             grid.VerticalAlignment = VerticalAlignment.Top;
 
                             TextBlock nameTextBlock = new();
-                            nameTextBlock.Text = "Mega-Sena (" + megaSena.Id + ")";
+                            nameTextBlock.Text = "Lotomania (" + lotomania.Id + ")";
                             nameTextBlock.Margin = new Thickness(46, 30, 0, 0);
                             nameTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
                             nameTextBlock.VerticalAlignment = VerticalAlignment.Top;
@@ -867,22 +882,36 @@ namespace Mega_sena_front
                             nameTextBlock.Foreground = blackColor;
                             grid.Children.Add(nameTextBlock);
                             TextBlock statusTextBlock = new();
-                            statusTextBlock.Text = "Status: " + megaSena.Status;
+                            statusTextBlock.Text = "Status: " + lotomania.Status;
                             statusTextBlock.Margin = new Thickness(46, 0, 0, 64);
                             statusTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
                             statusTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
                             statusTextBlock.FontSize = 24;
                             statusTextBlock.Foreground = blackColor;
                             grid.Children.Add(statusTextBlock);
-                            if (megaSena.Result != null)
+                            if (lotomania.Result != null)
                             {
                                 TextBlock resultTextBlock = new();
-                                resultTextBlock.Text = "Números: " + megaSena.Result[0] + megaSena.Result[1] + " " +
-                                                                       megaSena.Result[2] + megaSena.Result[3] + " " +
-                                                                       megaSena.Result[4] + megaSena.Result[5] + " " +
-                                                                       megaSena.Result[6] + megaSena.Result[7] + " " +
-                                                                       megaSena.Result[8] + megaSena.Result[9] + " " +
-                                                                       megaSena.Result[10] + megaSena.Result[11];
+                                resultTextBlock.Text = "Números: " + lotomania.Result[0] + lotomania.Result[1] + " " +
+                                                                       lotomania.Result[2] + lotomania.Result[3] + " " +
+                                                                       lotomania.Result[4] + lotomania.Result[5] + " " +
+                                                                       lotomania.Result[6] + lotomania.Result[7] + " " +
+                                                                       lotomania.Result[8] + lotomania.Result[9] + " " +
+                                                                       lotomania.Result[10] + lotomania.Result[11] + " " +
+                                                                       lotomania.Result[12] + lotomania.Result[13] + " " +
+                                                                       lotomania.Result[14] + lotomania.Result[15] + " " +
+                                                                       lotomania.Result[16] + lotomania.Result[17] + " " +
+                                                                       lotomania.Result[18] + lotomania.Result[19] + " " +
+                                                                       lotomania.Result[20] + lotomania.Result[21] + " " +
+                                                                       lotomania.Result[22] + lotomania.Result[23] + " " +
+                                                                       lotomania.Result[24] + lotomania.Result[25] + " " +
+                                                                       lotomania.Result[26] + lotomania.Result[27] + " " +
+                                                                       lotomania.Result[28] + lotomania.Result[29] + " " +
+                                                                       lotomania.Result[30] + lotomania.Result[31] + " " +
+                                                                       lotomania.Result[32] + lotomania.Result[33] + " " +
+                                                                       lotomania.Result[34] + lotomania.Result[35] + " " +
+                                                                       lotomania.Result[36] + lotomania.Result[37] + " " +
+                                                                       lotomania.Result[38] + lotomania.Result[39];
                                 resultTextBlock.Margin = new Thickness(46, 0, 0, 26);
                                 resultTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
                                 resultTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
@@ -892,7 +921,7 @@ namespace Mega_sena_front
 
                             }
                             TextBlock prizeTextBlock = new();
-                            prizeTextBlock.Text = "Prêmio: R$" + String.Format("{0:0.00}", megaSena.Prize);
+                            prizeTextBlock.Text = "Prêmio: R$" + String.Format("{0:0.00}", lotomania.Prize);
                             prizeTextBlock.Margin = new Thickness(0, 30, 46, 0);
                             prizeTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
                             prizeTextBlock.VerticalAlignment = VerticalAlignment.Top;
@@ -900,7 +929,7 @@ namespace Mega_sena_front
                             prizeTextBlock.Foreground = blackColor;
                             grid.Children.Add(prizeTextBlock);
                             TextBlock startDateTextBlock = new();
-                            startDateTextBlock.Text = "Data de Início: " + megaSena.StartTime.ToString("dd/MM/yyyy");
+                            startDateTextBlock.Text = "Data de Início: " + lotomania.StartTime.ToString("dd/MM/yyyy");
                             startDateTextBlock.Margin = new Thickness(0, 0, 46, 26);
                             startDateTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
                             startDateTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
@@ -908,7 +937,7 @@ namespace Mega_sena_front
                             startDateTextBlock.Foreground = blackColor;
                             grid.Children.Add(startDateTextBlock);
                             TextBlock endDateTextBlock = new();
-                            endDateTextBlock.Text = "Data de Início: " + megaSena.EndTime.ToString("dd/MM/yyyy");
+                            endDateTextBlock.Text = "Data de Início: " + lotomania.EndTime.ToString("dd/MM/yyyy");
                             endDateTextBlock.Margin = new Thickness(0, 0, 46, 64);
                             endDateTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
                             endDateTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
