@@ -23,8 +23,8 @@ namespace Mega_sena_front
                     break;
 
                 case "DuplaSena":
-                    Size = 12;
-                    Max = 60;
+                    Size = 6;
+                    Max = 50;
                     Min = 1;
                     break;
 
@@ -115,8 +115,8 @@ namespace Mega_sena_front
                     break;
 
                 case "DuplaSena":
-                    Size = 12;
-                    Max = 60;
+                    Size = 6;
+                    Max = 50;
                     Min = 1;
                     break;
 

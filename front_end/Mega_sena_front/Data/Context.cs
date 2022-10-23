@@ -20,7 +20,10 @@ namespace Mega_sena_front.Data
 		{
 			modelBuilder.Entity<MegaSena>().HasData(GetMegaSenas());
 			modelBuilder.Entity<LotoFacil>().HasData(GetLotoFacils());
-			base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Quina>().HasData(GetQuinas());
+            modelBuilder.Entity<DuplaSena>().HasData(GetDuplaSenas());
+
+            base.OnModelCreating(modelBuilder);
 		}
 
 		private static MegaSena[] GetMegaSenas()
@@ -87,5 +90,71 @@ namespace Mega_sena_front.Data
                 }
             };
         }
-	}
+
+        public static Quina[] GetQuinas()
+        {
+            return new Quina[]
+            {
+                new Quina
+                {
+                    Id = 1,
+                    Prize = 1000000.00,
+                    StartTime = new DateTime(2010, 12, 1),
+                    EndTime = new DateTime(2011, 12, 31),
+                    Status = "Encerrada",
+                    Result = "0821546076"
+                },
+                new Quina
+                {
+                    Id = 2,
+                    Prize = 1250000.00,
+                    StartTime = new DateTime(2024, 10, 1),
+                    EndTime = new DateTime(2026, 10, 31),
+                    Status = "Aberta"
+                },
+                new Quina
+                {
+                    Id = 3,
+                    Prize = 780000.00,
+                    StartTime = new DateTime(2020, 10, 1),
+                    EndTime = new DateTime(2021, 10, 14),
+                    Status = "Encerrada",
+                    Result = "1112256071"
+                }
+            };
+        }
+
+        private static DuplaSena[] GetDuplaSenas()
+        {
+            return new DuplaSena[]
+            {
+                new DuplaSena
+                {
+                    Id = 1,
+                    Prize = 1000000.00,
+                    StartTime = new DateTime(2010, 12, 1),
+                    EndTime = new DateTime(2011, 12, 31),
+                    Status = "Encerrada",
+                    Result = "081521334650031416344048"
+                },
+                new DuplaSena
+                {
+                    Id = 2,
+                    Prize = 1250000.00,
+                    StartTime = new DateTime(2024, 10, 1),
+                    EndTime = new DateTime(2026, 10, 31),
+                    Status = "Aberta"
+                },
+                new DuplaSena
+                {
+                    Id = 3,
+                    Prize = 780000.00,
+                    StartTime = new DateTime(2020, 10, 1),
+                    EndTime = new DateTime(2021, 10, 14),
+                    Status = "Encerrada",
+                    Result = "060718273542010326313744"
+                }
+            };
+        }
+    }
 }

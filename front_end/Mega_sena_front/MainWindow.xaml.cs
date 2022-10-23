@@ -582,10 +582,542 @@ namespace Mega_sena_front
                     }
                     break;
                 case "Quina":
+                    if (childrenHolder != null)
+                    {
+                        childrenHolder.Children.Clear();
+                        foreach (Quina quina in context.quinas)
+                        {
+                            Grid fillerGrid = new();
+                            fillerGrid.Height = 40;
+                            fillerGrid.Width = 1600;
+
+                            Grid grid = new();
+                            grid.Margin = new Thickness(0, 40, 0, 0);
+                            grid.Width = 1400;
+                            grid.Height = 180;
+                            grid.Background = whiteColor;
+                            grid.HorizontalAlignment = HorizontalAlignment.Center;
+                            grid.VerticalAlignment = VerticalAlignment.Top;
+
+                            TextBlock nameTextBlock = new();
+                            nameTextBlock.Text = "Quina (" + quina.Id + ")";
+                            nameTextBlock.Margin = new Thickness(46, 30, 0, 0);
+                            nameTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                            nameTextBlock.VerticalAlignment = VerticalAlignment.Top;
+                            nameTextBlock.FontSize = 32;
+                            nameTextBlock.Foreground = blackColor;
+                            grid.Children.Add(nameTextBlock);
+                            TextBlock statusTextBlock = new();
+                            statusTextBlock.Text = "Status: " + quina.Status;
+                            statusTextBlock.Margin = new Thickness(46, 0, 0, 64);
+                            statusTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                            statusTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            statusTextBlock.FontSize = 24;
+                            statusTextBlock.Foreground = blackColor;
+                            grid.Children.Add(statusTextBlock);
+                            if (quina.Result != null)
+                            {
+                                TextBlock resultTextBlock = new();
+                                resultTextBlock.Text = "Números: " + quina.Result[0] + quina.Result[1] + " " +
+                                                                       quina.Result[2] + quina.Result[3] + " " +
+                                                                       quina.Result[4] + quina.Result[5] + " " +
+                                                                       quina.Result[6] + quina.Result[7] + " " +
+                                                                       quina.Result[8] + quina.Result[9];
+                                resultTextBlock.Margin = new Thickness(46, 0, 0, 26);
+                                resultTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                                resultTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                                resultTextBlock.FontSize = 24;
+                                resultTextBlock.Foreground = blackColor;
+                                grid.Children.Add(resultTextBlock);
+
+                            }
+                            TextBlock prizeTextBlock = new();
+                            prizeTextBlock.Text = "Prêmio: R$" + String.Format("{0:0.00}", quina.Prize);
+                            prizeTextBlock.Margin = new Thickness(0, 30, 46, 0);
+                            prizeTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            prizeTextBlock.VerticalAlignment = VerticalAlignment.Top;
+                            prizeTextBlock.FontSize = 32;
+                            prizeTextBlock.Foreground = blackColor;
+                            grid.Children.Add(prizeTextBlock);
+                            TextBlock startDateTextBlock = new();
+                            startDateTextBlock.Text = "Data de Início: " + quina.StartTime.ToString("dd/MM/yyyy");
+                            startDateTextBlock.Margin = new Thickness(0, 0, 46, 26);
+                            startDateTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            startDateTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            startDateTextBlock.FontSize = 24;
+                            startDateTextBlock.Foreground = blackColor;
+                            grid.Children.Add(startDateTextBlock);
+                            TextBlock endDateTextBlock = new();
+                            endDateTextBlock.Text = "Data de Início: " + quina.EndTime.ToString("dd/MM/yyyy");
+                            endDateTextBlock.Margin = new Thickness(0, 0, 46, 64);
+                            endDateTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            endDateTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            endDateTextBlock.FontSize = 24;
+                            endDateTextBlock.Foreground = blackColor;
+                            grid.Children.Add(endDateTextBlock);
+
+                            childrenHolder.Children.Add(grid);
+                            childrenHolder.Children.Add(fillerGrid);
+                        }
+                        randomNumber.Foreground = grayColor;
+                        randomNumber.Content = "XX XX XX XX XX";
+                    }
+                    if (childHolderTwo != null)
+                    {
+                        childHolderTwo.Children.Clear();
+                        Quina[] quinas = new Quina[context.quinas.Count(t => t.Id == '1')];
+                        int i = 0;
+                        foreach (Quina q in context.quinas)
+                        {
+                            quinas[i] = q;
+                            i++;
+                        }
+                        Quina[] quinass = Feature.SortByPrize(quinas);
+
+                        foreach (Quina quina in quinass)
+                        {
+                            Grid fillerGrid = new();
+                            fillerGrid.Height = 40;
+                            fillerGrid.Width = 1600;
+
+                            Grid grid = new();
+                            grid.Margin = new Thickness(0, 40, 0, 0);
+                            grid.Width = 1400;
+                            grid.Height = 180;
+                            grid.Background = whiteColor;
+                            grid.HorizontalAlignment = HorizontalAlignment.Center;
+                            grid.VerticalAlignment = VerticalAlignment.Top;
+
+                            TextBlock nameTextBlock = new();
+                            nameTextBlock.Text = "Mega-Sena (" + quina.Id + ")";
+                            nameTextBlock.Margin = new Thickness(46, 30, 0, 0);
+                            nameTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                            nameTextBlock.VerticalAlignment = VerticalAlignment.Top;
+                            nameTextBlock.FontSize = 32;
+                            nameTextBlock.Foreground = blackColor;
+                            grid.Children.Add(nameTextBlock);
+                            TextBlock statusTextBlock = new();
+                            statusTextBlock.Text = "Status: " + quina.Status;
+                            statusTextBlock.Margin = new Thickness(46, 0, 0, 64);
+                            statusTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                            statusTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            statusTextBlock.FontSize = 24;
+                            statusTextBlock.Foreground = blackColor;
+                            grid.Children.Add(statusTextBlock);
+                            if (quina.Result != null)
+                            {
+                                TextBlock resultTextBlock = new();
+                                resultTextBlock.Text = "Números: " + quina.Result[0] + quina.Result[1] + " " +
+                                                                       quina.Result[2] + quina.Result[3] + " " +
+                                                                       quina.Result[4] + quina.Result[5] + " " +
+                                                                       quina.Result[6] + quina.Result[7] + " " +
+                                                                       quina.Result[8] + quina.Result[9];
+                                resultTextBlock.Margin = new Thickness(46, 0, 0, 26);
+                                resultTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                                resultTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                                resultTextBlock.FontSize = 24;
+                                resultTextBlock.Foreground = blackColor;
+                                grid.Children.Add(resultTextBlock);
+
+                            }
+                            TextBlock prizeTextBlock = new();
+                            prizeTextBlock.Text = "Prêmio: R$" + String.Format("{0:0.00}", quina.Prize);
+                            prizeTextBlock.Margin = new Thickness(0, 30, 46, 0);
+                            prizeTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            prizeTextBlock.VerticalAlignment = VerticalAlignment.Top;
+                            prizeTextBlock.FontSize = 32;
+                            prizeTextBlock.Foreground = blackColor;
+                            grid.Children.Add(prizeTextBlock);
+                            TextBlock startDateTextBlock = new();
+                            startDateTextBlock.Text = "Data de Início: " + quina.StartTime.ToString("dd/MM/yyyy");
+                            startDateTextBlock.Margin = new Thickness(0, 0, 46, 26);
+                            startDateTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            startDateTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            startDateTextBlock.FontSize = 24;
+                            startDateTextBlock.Foreground = blackColor;
+                            grid.Children.Add(startDateTextBlock);
+                            TextBlock endDateTextBlock = new();
+                            endDateTextBlock.Text = "Data de Início: " + quina.EndTime.ToString("dd/MM/yyyy");
+                            endDateTextBlock.Margin = new Thickness(0, 0, 46, 64);
+                            endDateTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            endDateTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            endDateTextBlock.FontSize = 24;
+                            endDateTextBlock.Foreground = blackColor;
+                            grid.Children.Add(endDateTextBlock);
+
+                            childHolderTwo.Children.Add(grid);
+                            childHolderTwo.Children.Add(fillerGrid);
+                        }
+                    }
                     break;
                 case "Lotomania":
+                    if (childrenHolder != null)
+                    {
+                        childrenHolder.Children.Clear();
+                        foreach (MegaSena megaSena in context.megaSenas)
+                        {
+                            Grid fillerGrid = new();
+                            fillerGrid.Height = 40;
+                            fillerGrid.Width = 1600;
+
+                            Grid grid = new();
+                            grid.Margin = new Thickness(0, 40, 0, 0);
+                            grid.Width = 1400;
+                            grid.Height = 180;
+                            grid.Background = whiteColor;
+                            grid.HorizontalAlignment = HorizontalAlignment.Center;
+                            grid.VerticalAlignment = VerticalAlignment.Top;
+
+                            TextBlock nameTextBlock = new();
+                            nameTextBlock.Text = "Mega-Sena (" + megaSena.Id + ")";
+                            nameTextBlock.Margin = new Thickness(46, 30, 0, 0);
+                            nameTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                            nameTextBlock.VerticalAlignment = VerticalAlignment.Top;
+                            nameTextBlock.FontSize = 32;
+                            nameTextBlock.Foreground = blackColor;
+                            grid.Children.Add(nameTextBlock);
+                            TextBlock statusTextBlock = new();
+                            statusTextBlock.Text = "Status: " + megaSena.Status;
+                            statusTextBlock.Margin = new Thickness(46, 0, 0, 64);
+                            statusTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                            statusTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            statusTextBlock.FontSize = 24;
+                            statusTextBlock.Foreground = blackColor;
+                            grid.Children.Add(statusTextBlock);
+                            if (megaSena.Result != null)
+                            {
+                                TextBlock resultTextBlock = new();
+                                resultTextBlock.Text = "Números: " + megaSena.Result[0] + megaSena.Result[1] + " " +
+                                                                       megaSena.Result[2] + megaSena.Result[3] + " " +
+                                                                       megaSena.Result[4] + megaSena.Result[5] + " " +
+                                                                       megaSena.Result[6] + megaSena.Result[7] + " " +
+                                                                       megaSena.Result[8] + megaSena.Result[9] + " " +
+                                                                       megaSena.Result[10] + megaSena.Result[11];
+                                resultTextBlock.Margin = new Thickness(46, 0, 0, 26);
+                                resultTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                                resultTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                                resultTextBlock.FontSize = 24;
+                                resultTextBlock.Foreground = blackColor;
+                                grid.Children.Add(resultTextBlock);
+
+                            }
+                            TextBlock prizeTextBlock = new();
+                            prizeTextBlock.Text = "Prêmio: R$" + String.Format("{0:0.00}", megaSena.Prize);
+                            prizeTextBlock.Margin = new Thickness(0, 30, 46, 0);
+                            prizeTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            prizeTextBlock.VerticalAlignment = VerticalAlignment.Top;
+                            prizeTextBlock.FontSize = 32;
+                            prizeTextBlock.Foreground = blackColor;
+                            grid.Children.Add(prizeTextBlock);
+                            TextBlock startDateTextBlock = new();
+                            startDateTextBlock.Text = "Data de Início: " + megaSena.StartTime.ToString("dd/MM/yyyy");
+                            startDateTextBlock.Margin = new Thickness(0, 0, 46, 26);
+                            startDateTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            startDateTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            startDateTextBlock.FontSize = 24;
+                            startDateTextBlock.Foreground = blackColor;
+                            grid.Children.Add(startDateTextBlock);
+                            TextBlock endDateTextBlock = new();
+                            endDateTextBlock.Text = "Data de Início: " + megaSena.EndTime.ToString("dd/MM/yyyy");
+                            endDateTextBlock.Margin = new Thickness(0, 0, 46, 64);
+                            endDateTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            endDateTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            endDateTextBlock.FontSize = 24;
+                            endDateTextBlock.Foreground = blackColor;
+                            grid.Children.Add(endDateTextBlock);
+
+                            childrenHolder.Children.Add(grid);
+                            childrenHolder.Children.Add(fillerGrid);
+                        }
+                        randomNumber.Foreground = grayColor;
+                        randomNumber.Content = "XX XX XX XX XX XX";
+                    }
+                    if (childHolderTwo != null)
+                    {
+                        childHolderTwo.Children.Clear();
+                        MegaSena[] megaSenass = new MegaSena[3];
+                        int i = 0;
+                        foreach (MegaSena m in context.megaSenas)
+                        {
+                            megaSenass[i] = m;
+                            i++;
+                        }
+                        MegaSena[] megaSenasss = Feature.SortByPrize(megaSenass);
+
+                        foreach (MegaSena megaSena in megaSenasss)
+                        {
+                            Grid fillerGrid = new();
+                            fillerGrid.Height = 40;
+                            fillerGrid.Width = 1600;
+
+                            Grid grid = new();
+                            grid.Margin = new Thickness(0, 40, 0, 0);
+                            grid.Width = 1400;
+                            grid.Height = 180;
+                            grid.Background = whiteColor;
+                            grid.HorizontalAlignment = HorizontalAlignment.Center;
+                            grid.VerticalAlignment = VerticalAlignment.Top;
+
+                            TextBlock nameTextBlock = new();
+                            nameTextBlock.Text = "Mega-Sena (" + megaSena.Id + ")";
+                            nameTextBlock.Margin = new Thickness(46, 30, 0, 0);
+                            nameTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                            nameTextBlock.VerticalAlignment = VerticalAlignment.Top;
+                            nameTextBlock.FontSize = 32;
+                            nameTextBlock.Foreground = blackColor;
+                            grid.Children.Add(nameTextBlock);
+                            TextBlock statusTextBlock = new();
+                            statusTextBlock.Text = "Status: " + megaSena.Status;
+                            statusTextBlock.Margin = new Thickness(46, 0, 0, 64);
+                            statusTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                            statusTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            statusTextBlock.FontSize = 24;
+                            statusTextBlock.Foreground = blackColor;
+                            grid.Children.Add(statusTextBlock);
+                            if (megaSena.Result != null)
+                            {
+                                TextBlock resultTextBlock = new();
+                                resultTextBlock.Text = "Números: " + megaSena.Result[0] + megaSena.Result[1] + " " +
+                                                                       megaSena.Result[2] + megaSena.Result[3] + " " +
+                                                                       megaSena.Result[4] + megaSena.Result[5] + " " +
+                                                                       megaSena.Result[6] + megaSena.Result[7] + " " +
+                                                                       megaSena.Result[8] + megaSena.Result[9] + " " +
+                                                                       megaSena.Result[10] + megaSena.Result[11];
+                                resultTextBlock.Margin = new Thickness(46, 0, 0, 26);
+                                resultTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                                resultTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                                resultTextBlock.FontSize = 24;
+                                resultTextBlock.Foreground = blackColor;
+                                grid.Children.Add(resultTextBlock);
+
+                            }
+                            TextBlock prizeTextBlock = new();
+                            prizeTextBlock.Text = "Prêmio: R$" + String.Format("{0:0.00}", megaSena.Prize);
+                            prizeTextBlock.Margin = new Thickness(0, 30, 46, 0);
+                            prizeTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            prizeTextBlock.VerticalAlignment = VerticalAlignment.Top;
+                            prizeTextBlock.FontSize = 32;
+                            prizeTextBlock.Foreground = blackColor;
+                            grid.Children.Add(prizeTextBlock);
+                            TextBlock startDateTextBlock = new();
+                            startDateTextBlock.Text = "Data de Início: " + megaSena.StartTime.ToString("dd/MM/yyyy");
+                            startDateTextBlock.Margin = new Thickness(0, 0, 46, 26);
+                            startDateTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            startDateTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            startDateTextBlock.FontSize = 24;
+                            startDateTextBlock.Foreground = blackColor;
+                            grid.Children.Add(startDateTextBlock);
+                            TextBlock endDateTextBlock = new();
+                            endDateTextBlock.Text = "Data de Início: " + megaSena.EndTime.ToString("dd/MM/yyyy");
+                            endDateTextBlock.Margin = new Thickness(0, 0, 46, 64);
+                            endDateTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            endDateTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            endDateTextBlock.FontSize = 24;
+                            endDateTextBlock.Foreground = blackColor;
+                            grid.Children.Add(endDateTextBlock);
+
+                            childHolderTwo.Children.Add(grid);
+                            childHolderTwo.Children.Add(fillerGrid);
+                        }
+                    }
                     break;
                 case "DuplaSena":
+                    if (childrenHolder != null)
+                    {
+                        childrenHolder.Children.Clear();
+                        foreach (DuplaSena duplaSena in context.duplaSenas)
+                        {
+                            Grid fillerGrid = new();
+                            fillerGrid.Height = 40;
+                            fillerGrid.Width = 1600;
+
+                            Grid grid = new();
+                            grid.Margin = new Thickness(0, 40, 0, 0);
+                            grid.Width = 1400;
+                            grid.Height = 196;
+                            grid.Background = whiteColor;
+                            grid.HorizontalAlignment = HorizontalAlignment.Center;
+                            grid.VerticalAlignment = VerticalAlignment.Top;
+
+                            TextBlock nameTextBlock = new();
+                            nameTextBlock.Text = "Mega-Sena (" + duplaSena.Id + ")";
+                            nameTextBlock.Margin = new Thickness(46, 30, 0, 0);
+                            nameTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                            nameTextBlock.VerticalAlignment = VerticalAlignment.Top;
+                            nameTextBlock.FontSize = 32;
+                            nameTextBlock.Foreground = blackColor;
+                            grid.Children.Add(nameTextBlock);
+                            TextBlock statusTextBlock = new();
+                            statusTextBlock.Text = "Status: " + duplaSena.Status;
+                            statusTextBlock.Margin = new Thickness(46, 0, 0, 64);
+                            statusTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                            statusTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            statusTextBlock.FontSize = 24;
+                            statusTextBlock.Foreground = blackColor;
+                            grid.Children.Add(statusTextBlock);
+                            if (duplaSena.Result != null)
+                            {
+                                TextBlock resultTextBlock1 = new();
+                                resultTextBlock1.Text = "1º sorteio: " + duplaSena.Result[0] + duplaSena.Result[1] + " " +
+                                                                       duplaSena.Result[2] + duplaSena.Result[3] + " " +
+                                                                       duplaSena.Result[4] + duplaSena.Result[5] + " " +
+                                                                       duplaSena.Result[6] + duplaSena.Result[7] + " " +
+                                                                       duplaSena.Result[8] + duplaSena.Result[9] + " " +
+                                                                       duplaSena.Result[10] + duplaSena.Result[11];
+                                resultTextBlock1.Margin = new Thickness(46, 0, 0, 26);
+                                resultTextBlock1.HorizontalAlignment = HorizontalAlignment.Left;
+                                resultTextBlock1.VerticalAlignment = VerticalAlignment.Bottom;
+                                resultTextBlock1.FontSize = 24;
+                                resultTextBlock1.Foreground = blackColor;
+                                grid.Children.Add(resultTextBlock1);
+
+                                TextBlock resultTextBlock2 = new();
+                                resultTextBlock2.Text = "2º sorteio: " + duplaSena.Result[12] + duplaSena.Result[13] + " " +
+                                                                       duplaSena.Result[14] + duplaSena.Result[15] + " " +
+                                                                       duplaSena.Result[16] + duplaSena.Result[17] + " " +
+                                                                       duplaSena.Result[18] + duplaSena.Result[19] + " " +
+                                                                       duplaSena.Result[20] + duplaSena.Result[21] + " " +
+                                                                       duplaSena.Result[22] + duplaSena.Result[23];
+                                resultTextBlock2.Margin = new Thickness(46, 0, 0, 36);
+                                resultTextBlock2.HorizontalAlignment = HorizontalAlignment.Left;
+                                resultTextBlock2.VerticalAlignment = VerticalAlignment.Bottom;
+                                resultTextBlock2.FontSize = 24;
+                                resultTextBlock2.Foreground = blackColor;
+                                grid.Children.Add(resultTextBlock2);
+
+                            }
+                            TextBlock prizeTextBlock = new();
+                            prizeTextBlock.Text = "Prêmio: R$" + String.Format("{0:0.00}", duplaSena.Prize);
+                            prizeTextBlock.Margin = new Thickness(0, 30, 46, 0);
+                            prizeTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            prizeTextBlock.VerticalAlignment = VerticalAlignment.Top;
+                            prizeTextBlock.FontSize = 32;
+                            prizeTextBlock.Foreground = blackColor;
+                            grid.Children.Add(prizeTextBlock);
+                            TextBlock startDateTextBlock = new();
+                            startDateTextBlock.Text = "Data de Início: " + duplaSena.StartTime.ToString("dd/MM/yyyy");
+                            startDateTextBlock.Margin = new Thickness(0, 0, 46, 26);
+                            startDateTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            startDateTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            startDateTextBlock.FontSize = 24;
+                            startDateTextBlock.Foreground = blackColor;
+                            grid.Children.Add(startDateTextBlock);
+                            TextBlock endDateTextBlock = new();
+                            endDateTextBlock.Text = "Data de Início: " + duplaSena.EndTime.ToString("dd/MM/yyyy");
+                            endDateTextBlock.Margin = new Thickness(0, 0, 46, 64);
+                            endDateTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            endDateTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            endDateTextBlock.FontSize = 24;
+                            endDateTextBlock.Foreground = blackColor;
+                            grid.Children.Add(endDateTextBlock);
+
+                            childrenHolder.Children.Add(grid);
+                            childrenHolder.Children.Add(fillerGrid);
+                        }
+                        randomNumber.Foreground = grayColor;
+                        randomNumber.Content = "XX XX XX XX XX XX";
+                    }
+                    if (childHolderTwo != null)
+                    {
+                        childHolderTwo.Children.Clear();
+                        DuplaSena[] duplas = new DuplaSena[context.duplaSenas.Count(t => t.Id == '1')];
+                        int i = 0;
+                        foreach (DuplaSena d in context.duplaSenas)
+                        {
+                            duplas[i] = d;
+                            i++;
+                        }
+                        DuplaSena[] duplass = Feature.SortByPrize(duplas);
+                        foreach (DuplaSena duplaSena in duplass)
+                        {
+                            Grid fillerGrid = new();
+                            fillerGrid.Height = 40;
+                            fillerGrid.Width = 1600;
+
+                            Grid grid = new();
+                            grid.Margin = new Thickness(0, 40, 0, 0);
+                            grid.Width = 1400;
+                            grid.Height = 196;
+                            grid.Background = whiteColor;
+                            grid.HorizontalAlignment = HorizontalAlignment.Center;
+                            grid.VerticalAlignment = VerticalAlignment.Top;
+
+                            TextBlock nameTextBlock = new();
+                            nameTextBlock.Text = "Mega-Sena (" + duplaSena.Id + ")";
+                            nameTextBlock.Margin = new Thickness(46, 30, 0, 0);
+                            nameTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                            nameTextBlock.VerticalAlignment = VerticalAlignment.Top;
+                            nameTextBlock.FontSize = 32;
+                            nameTextBlock.Foreground = blackColor;
+                            grid.Children.Add(nameTextBlock);
+                            TextBlock statusTextBlock = new();
+                            statusTextBlock.Text = "Status: " + duplaSena.Status;
+                            statusTextBlock.Margin = new Thickness(46, 0, 0, 64);
+                            statusTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                            statusTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            statusTextBlock.FontSize = 24;
+                            statusTextBlock.Foreground = blackColor;
+                            grid.Children.Add(statusTextBlock);
+                            if (duplaSena.Result != null)
+                            {
+                                TextBlock resultTextBlock1 = new();
+                                resultTextBlock1.Text = "1º sorteio: " + duplaSena.Result[0] + duplaSena.Result[1] + " " +
+                                                                       duplaSena.Result[2] + duplaSena.Result[3] + " " +
+                                                                       duplaSena.Result[4] + duplaSena.Result[5] + " " +
+                                                                       duplaSena.Result[6] + duplaSena.Result[7] + " " +
+                                                                       duplaSena.Result[8] + duplaSena.Result[9] + " " +
+                                                                       duplaSena.Result[10] + duplaSena.Result[11];
+                                resultTextBlock1.Margin = new Thickness(46, 0, 0, 26);
+                                resultTextBlock1.HorizontalAlignment = HorizontalAlignment.Left;
+                                resultTextBlock1.VerticalAlignment = VerticalAlignment.Bottom;
+                                resultTextBlock1.FontSize = 24;
+                                resultTextBlock1.Foreground = blackColor;
+                                grid.Children.Add(resultTextBlock1);
+
+                                TextBlock resultTextBlock2 = new();
+                                resultTextBlock2.Text = "2º sorteio: " + duplaSena.Result[12] + duplaSena.Result[13] + " " +
+                                                                       duplaSena.Result[14] + duplaSena.Result[15] + " " +
+                                                                       duplaSena.Result[16] + duplaSena.Result[17] + " " +
+                                                                       duplaSena.Result[18] + duplaSena.Result[19] + " " +
+                                                                       duplaSena.Result[20] + duplaSena.Result[21] + " " +
+                                                                       duplaSena.Result[22] + duplaSena.Result[23];
+                                resultTextBlock2.Margin = new Thickness(46, 0, 0, 36);
+                                resultTextBlock2.HorizontalAlignment = HorizontalAlignment.Left;
+                                resultTextBlock2.VerticalAlignment = VerticalAlignment.Bottom;
+                                resultTextBlock2.FontSize = 24;
+                                resultTextBlock2.Foreground = blackColor;
+                                grid.Children.Add(resultTextBlock2);
+
+                            }
+                            TextBlock prizeTextBlock = new();
+                            prizeTextBlock.Text = "Prêmio: R$" + String.Format("{0:0.00}", duplaSena.Prize);
+                            prizeTextBlock.Margin = new Thickness(0, 30, 46, 0);
+                            prizeTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            prizeTextBlock.VerticalAlignment = VerticalAlignment.Top;
+                            prizeTextBlock.FontSize = 32;
+                            prizeTextBlock.Foreground = blackColor;
+                            grid.Children.Add(prizeTextBlock);
+                            TextBlock startDateTextBlock = new();
+                            startDateTextBlock.Text = "Data de Início: " + duplaSena.StartTime.ToString("dd/MM/yyyy");
+                            startDateTextBlock.Margin = new Thickness(0, 0, 46, 26);
+                            startDateTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            startDateTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            startDateTextBlock.FontSize = 24;
+                            startDateTextBlock.Foreground = blackColor;
+                            grid.Children.Add(startDateTextBlock);
+                            TextBlock endDateTextBlock = new();
+                            endDateTextBlock.Text = "Data de Início: " + duplaSena.EndTime.ToString("dd/MM/yyyy");
+                            endDateTextBlock.Margin = new Thickness(0, 0, 46, 64);
+                            endDateTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
+                            endDateTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
+                            endDateTextBlock.FontSize = 24;
+                            endDateTextBlock.Foreground = blackColor;
+                            grid.Children.Add(endDateTextBlock);
+
+                            childrenHolder.Children.Add(grid);
+                            childrenHolder.Children.Add(fillerGrid);
+                        }
+                    }
                     break;
                 default:
                     break;
@@ -687,7 +1219,7 @@ namespace Mega_sena_front
 
         private void clipBoard_Click(object sender, RoutedEventArgs e)
         {
-            Clipboard.SetDataObject(randomNumber.Content);
+            if (randomNumber.Content.ToString()[0] != 'X') Clipboard.SetDataObject(randomNumber.Content);
         }
     }
 }
