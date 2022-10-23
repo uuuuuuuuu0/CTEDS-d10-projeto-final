@@ -17,13 +17,13 @@ namespace Mega_sena_front
             switch (Type)
             {
                 case "MegaSena":
-                    Size = 6;
+                    Size = n;
                     Max = 60;
                     Min = 1;
                     break;
 
                 case "DuplaSena":
-                    Size = 6;
+                    Size = n;
                     Max = 50;
                     Min = 1;
                     break;
@@ -35,7 +35,7 @@ namespace Mega_sena_front
                     break;
 
                 case "Lotomania":
-                    Size = 50;
+                    Size = n;
                     Max = 99;
                     Min = 0;
                     break;

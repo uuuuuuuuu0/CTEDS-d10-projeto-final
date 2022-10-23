@@ -18,10 +18,10 @@ namespace Mega_sena_front.Data
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<MegaSena>().HasData(GetMegaSenas());
-			modelBuilder.Entity<LotoFacil>().HasData(GetLotoFacils());
-            modelBuilder.Entity<Quina>().HasData(GetQuinas());
-            modelBuilder.Entity<DuplaSena>().HasData(GetDuplaSenas());
+			modelBuilder.Entity<MegaSena>().HasData(DataGenerator.MegaSenas(30));
+			modelBuilder.Entity<LotoFacil>().HasData(DataGenerator.LotoFacils(30));
+            modelBuilder.Entity<Quina>().HasData(DataGenerator.Quinas(30));
+            modelBuilder.Entity<DuplaSena>().HasData(DataGenerator.DuplaSenas(30));
 
             base.OnModelCreating(modelBuilder);
 		}
