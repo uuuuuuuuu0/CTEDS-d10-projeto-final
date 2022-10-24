@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace Mega_sena_front
 {
-    public class MegaSena
+    public interface LotteryGame
+    {
+        public int Id { get; set; }
+        public double? Prize { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public string? Status { get; set; }
+        public string? Result { get; set; }
+    }
+
+    public class MegaSena : LotteryGame
     {
         public int Id { get; set; }
         public double? Prize { get; set; }
@@ -16,7 +26,7 @@ namespace Mega_sena_front
         public string? Result { get; set; }
 
     }
-    public class LotoFacil
+    public class LotoFacil : LotteryGame
     {
         public int Id { get; set; }
         public double? Prize { get; set; }
@@ -26,7 +36,7 @@ namespace Mega_sena_front
         public string? Result { get; set; }
 
     }
-    public class Quina
+    public class Quina : LotteryGame
     {
         public int Id { get; set; }
         public double? Prize { get; set; }
@@ -36,7 +46,7 @@ namespace Mega_sena_front
         public string? Result { get; set; }
 
     }
-    public class Lotomania
+    public class Lotomania : LotteryGame
     {
         public int Id { get; set; }
         public double? Prize { get; set; }
@@ -46,7 +56,7 @@ namespace Mega_sena_front
         public string? Result { get; set; }
 
     }
-    public class DuplaSena
+    public class DuplaSena : LotteryGame
     {
         public int Id { get; set; }
         public double? Prize { get; set; }
