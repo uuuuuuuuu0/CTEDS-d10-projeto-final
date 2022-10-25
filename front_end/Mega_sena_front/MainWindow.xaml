@@ -338,11 +338,44 @@
             </Grid>
         </Border>
         <Grid Width="1600" Height="156" Background="{Binding ElementName=secondColor, Path=Background}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="137*"/>
+                <ColumnDefinition Width="56*"/>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="607*"/>
+            </Grid.ColumnDefinitions>
+            <Button
+                x:Name="returnButton"
+                BorderThickness="4"
+                
+                BorderBrush="#FFFFFF"
+                Margin="24,0,0,0"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left"
+                Background="#FFFFFF"
+                Foreground="#000001"
+                Width="64"
+                Content="&lt;" 
+                FontSize="40"
+                FontWeight="UltraBlack"
+                Click="returnButton_Click"
+                Visibility="Collapsed"
+                Height="80"
+                Grid.Column="0">
+                
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            
             <TextBox
                 x:Name="Busca"
                 BorderThickness="4"
                 BorderBrush="#FFFFFF"
-                Margin="120, 36, 0, 36"
+                Margin="104,0,0,0"
                 VerticalAlignment="Center"
                 VerticalContentAlignment="Center"
                 HorizontalAlignment="Left"
@@ -353,8 +386,33 @@
                 Width="600"
                 Height="80"
                 GotKeyboardFocus="kbFocus"
-                LostKeyboardFocus="KbLostFocus"
+                LostKeyboardFocus="KbLostFocus" Grid.ColumnSpan="4"
                 />
+
+            <Button
+                x:Name="searchButton"
+                BorderThickness="4"
+                
+                BorderBrush="#FFFFFF"
+                Margin="330,0,0,0"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left"
+                Background="#FFFFFF"
+                Foreground="#000001"
+                Width="80"
+                Height="80"
+                Click="searchButton_Click" Grid.Column="3">
+                <Image Source="img/search3.png" Width="64"/>
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            
+
             <ComboBox 
                 x:Name="cbBox"
                 Margin="0,0,20,0" 
@@ -370,7 +428,7 @@
                 VerticalContentAlignment="Center" 
                 HorizontalContentAlignment="Center"
                 SelectedValue="Name"
-                SelectionChanged="ComboBox_SelectionChanged">
+                SelectionChanged="ComboBox_SelectionChanged" Grid.Column="3">
                 <ComboBoxItem Name="MegaSena" IsSelected="True"
                               HorizontalAlignment="Center" 
                               Foreground="{Binding ElementName=titleColor, Path=Foreground}">Mega-Sena</ComboBoxItem>
@@ -387,11 +445,11 @@
         <Border BorderThickness="0,4,0,0" BorderBrush="#000000">
             <StackPanel Background="{Binding ElementName=mainColor, Path=Background}">
                 <TextBlock x:Name="auxDiv" VerticalAlignment="Top" Margin="0,-4,24,0" HorizontalAlignment="Right" Width="628" Height="5" Background="#262626"/>
-                <ScrollViewer x:Name="resultsWindow" Width="1600" Height="520" Background="{Binding ElementName=mainColor, Path=Background}" Visibility="Collapsed">
+                <ScrollViewer x:Name="resultsWindow" Width="1600" Height="520" Background="{Binding ElementName=mainColor, Path=Background}" Visibility="Visible">
                     <StackPanel x:Name="childrenHolder">
                     </StackPanel>
                 </ScrollViewer>
-                <ScrollViewer x:Name="statisticsWindow" Width="1600" Height="520" Visibility="Visible" Background="{Binding ElementName=mainColor}">
+                <ScrollViewer x:Name="statisticsWindow" Width="1600" Height="520" Visibility="Collapsed" Background="{Binding ElementName=mainColor}">
                     <Grid Width="1600">
                         <Button Content="Gerar números aleatórios"
                             Background="#FFFFFF"
@@ -435,9 +493,9 @@
                             Foreground="#494949"
                             Click="clipBoard_Click">
                             <Image Width="64" Source="img/clipboard2.png" />
-                            </Button>
+                        </Button>
 
-                            <TextBlock x:Name="titleTwo"
+                        <TextBlock x:Name="titleTwo"
                                    VerticalAlignment="Top"
                                    HorizontalAlignment="Left"
                                    Margin="64,172,0,0"

@@ -22,6 +22,7 @@ namespace Mega_sena_front.Data
 			modelBuilder.Entity<LotoFacil>().HasData(DataGenerator.LotoFacils(30));
             modelBuilder.Entity<Quina>().HasData(DataGenerator.Quinas(30));
             modelBuilder.Entity<DuplaSena>().HasData(DataGenerator.DuplaSenas(30));
+            modelBuilder.Entity<Lotomania>().HasData(DataGenerator.Lotomanias(30));
 
             base.OnModelCreating(modelBuilder);
 		}
