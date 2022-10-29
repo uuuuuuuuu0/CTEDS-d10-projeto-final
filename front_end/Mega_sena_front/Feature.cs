@@ -195,6 +195,7 @@ namespace Mega_sena_front
 
         public static int[] ConvertSequence (string result)
         {
+            if (result == null) return null;
             int[] sequence = new int[(result.Length)/2];
             for (int i = 0; i < result.Length/2; i++)
             {
@@ -206,12 +207,12 @@ namespace Mega_sena_front
 
         public static MegaSena[] SortByPrize(MegaSena[] games)
         {
-            MegaSena[] SortGames = new MegaSena[games.Length];
+            MegaSena[] SortGames = new MegaSena[Math.Min(games.Length, 3)];
             bool[] AlreadyRead = new bool[games.Length];
 
             for (int i = 0; i < games.Length; i++) AlreadyRead[i] = false;
 
-            for (int i = 0; i < games.Length; i++)
+            for (int i = 0; i < Math.Min(games.Length, 3); i++)
             {
                 double? biggest = 0;
                 int biggestPos = 0;
@@ -231,12 +232,12 @@ namespace Mega_sena_front
 
         public static DuplaSena[] SortByPrize(DuplaSena[] games)
         {
-            DuplaSena[] SortGames = new DuplaSena[games.Length];
+            DuplaSena[] SortGames = new DuplaSena[Math.Min(games.Length, 3)];
             bool[] AlreadyRead = new bool[games.Length];
 
             for (int i = 0; i < games.Length; i++) AlreadyRead[i] = false;
 
-            for (int i = 0; i < games.Length; i++)
+            for (int i = 0; i < Math.Min(games.Length, 3); i++)
             {
                 double? biggest = 0;
                 int biggestPos = 0;
@@ -256,12 +257,12 @@ namespace Mega_sena_front
 
         public static LotoFacil[] SortByPrize(LotoFacil[] games)
         {
-            LotoFacil[] SortGames = new LotoFacil[games.Length];
+            LotoFacil[] SortGames = new LotoFacil[Math.Min(games.Length, 3)];
             bool[] AlreadyRead = new bool[games.Length];
 
             for (int i = 0; i < games.Length; i++) AlreadyRead[i] = false;
 
-            for (int i = 0; i < games.Length; i++)
+            for (int i = 0; i < Math.Min(games.Length, 3); i++)
             {
                 double? biggest = 0;
                 int biggestPos = 0;
@@ -281,12 +282,12 @@ namespace Mega_sena_front
 
         public static Lotomania[] SortByPrize(Lotomania[] games)
         {
-            Lotomania[] SortGames = new Lotomania[games.Length];
+            Lotomania[] SortGames = new Lotomania[Math.Min(games.Length, 3)];
             bool[] AlreadyRead = new bool[games.Length];
 
             for (int i = 0; i < games.Length; i++) AlreadyRead[i] = false;
 
-            for (int i = 0; i < games.Length; i++)
+            for (int i = 0; i < Math.Min(games.Length, 3); i++)
             {
                 double? biggest = 0;
                 int biggestPos = 0;
@@ -306,12 +307,12 @@ namespace Mega_sena_front
 
         public static Quina[] SortByPrize(Quina[] games)
         {
-            Quina[] SortGames = new Quina[games.Length];
+            Quina[] SortGames = new Quina[Math.Min(games.Length, 3)];
             bool[] AlreadyRead = new bool[games.Length];
 
             for (int i = 0; i < games.Length; i++) AlreadyRead[i] = false;
 
-            for (int i = 0; i < games.Length; i++)
+            for (int i = 0; i < Math.Min(games.Length, 3); i++)
             {
                 double? biggest = 0;
                 int biggestPos = 0;

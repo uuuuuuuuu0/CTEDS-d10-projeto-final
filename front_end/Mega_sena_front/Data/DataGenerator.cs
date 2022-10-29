@@ -41,7 +41,8 @@ namespace Mega_sena_front.Data
 
                 foreach (int n in result)
                 {
-                    resultStr = resultStr + n;
+                    if (n < 10) resultStr = resultStr + '0' + n;
+                    else resultStr = resultStr + n;
                 }
 
                 megaSenas[i] = new MegaSena
@@ -51,7 +52,7 @@ namespace Mega_sena_front.Data
                     StartTime = new DateTime(year, month, 1),
                     EndTime = new DateTime(year, month, lastDay),
                     Status = (month == currentMonth && year == currentYear) ? "Aberta" : "Encerrada",
-                    Result = resultStr
+                    Result = (month == currentMonth && year == currentYear) ? null : resultStr
                 };
                 
                 month--;
@@ -98,7 +99,8 @@ namespace Mega_sena_front.Data
 
                 foreach (int n in result)
                 {
-                    resultStr = resultStr + n;
+                    if (n < 10) resultStr = resultStr + '0' + n;
+                    else resultStr = resultStr + n;
                 }
 
                 lotoFacils[i] = new LotoFacil
@@ -108,8 +110,8 @@ namespace Mega_sena_front.Data
                     StartTime = new DateTime(year, month, 1),
                     EndTime = new DateTime(year, month, lastDay),
                     Status = (month == currentMonth && year == currentYear) ? "Aberta" : "Encerrada",
-                    Result = resultStr
-                };
+                    Result = (month == currentMonth && year == currentYear) ? null : resultStr
+            };
 
                 month--;
                 if (month == 0)
@@ -156,12 +158,14 @@ namespace Mega_sena_front.Data
 
                 foreach (int n in result1)
                 {
-                    resultStr = resultStr + n;
+                    if (n < 10) resultStr = resultStr + '0' + n;
+                    else resultStr = resultStr + n;
                 }
 
                 foreach (int n in result2)
                 {
-                    resultStr = resultStr + n;
+                    if (n < 10) resultStr = resultStr + '0' + n;
+                    else resultStr = resultStr + n;
                 }
 
                 duplas[i] = new DuplaSena
@@ -171,8 +175,8 @@ namespace Mega_sena_front.Data
                     StartTime = new DateTime(year, month, 1),
                     EndTime = new DateTime(year, month, lastDay),
                     Status = (month == currentMonth && year == currentYear) ? "Aberta" : "Encerrada",
-                    Result = resultStr
-                };
+                    Result = (month == currentMonth && year == currentYear) ? null : resultStr
+            };
 
                 month--;
                 if (month == 0)
@@ -218,7 +222,8 @@ namespace Mega_sena_front.Data
 
                 foreach (int n in result)
                 {
-                    resultStr = resultStr + n;
+                    if (n < 10) resultStr = resultStr + '0' + n;
+                    else resultStr = resultStr + n;
                 }
 
                 quinas[i] = new Quina
@@ -228,8 +233,8 @@ namespace Mega_sena_front.Data
                     StartTime = new DateTime(year, month, 1),
                     EndTime = new DateTime(year, month, lastDay),
                     Status = (month == currentMonth && year == currentYear) ? "Aberta" : "Encerrada",
-                    Result = resultStr
-                };
+                    Result = (month == currentMonth && year == currentYear) ? null : resultStr
+        };
 
                 month--;
                 if (month == 0)
@@ -275,7 +280,8 @@ namespace Mega_sena_front.Data
 
                 foreach (int n in result)
                 {
-                    resultStr = resultStr + n;
+                    if (n < 10) resultStr = resultStr + '0' + n;
+                    else resultStr = resultStr + n;
                 }
 
                 lotomanias[i] = new Lotomania
@@ -285,8 +291,8 @@ namespace Mega_sena_front.Data
                     StartTime = new DateTime(year, month, 1),
                     EndTime = new DateTime(year, month, lastDay),
                     Status = (month == currentMonth && year == currentYear) ? "Aberta" : "Encerrada",
-                    Result = resultStr
-                };
+                    Result = (month == currentMonth && year == currentYear) ? null : resultStr
+        };
 
                 month--;
                 if (month == 0)

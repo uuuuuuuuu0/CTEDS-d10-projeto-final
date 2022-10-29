@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Mega_sena_front.Data
 {
     public class Search
@@ -429,6 +430,326 @@ namespace Mega_sena_front.Data
 
             return list;
 
+        }
+
+        public int[,] MostSortedNumbers(string? lotteryStr)
+        {
+            int[,] mostSorted = new int[2,3];
+            if (lotteryStr == "MegaSena")
+            {
+                var lotteries = context.megaSenas;
+                int[] quantities = new int[60];
+                foreach (var lottery in lotteries)
+                {
+                    int[] result = Feature.ConvertSequence(lottery.Result);
+                    if (result == null) continue;
+                    foreach (int n in result)
+                    {
+                        quantities[n - 1]++;
+                    }
+                }
+
+                int biggestQuant = 0;
+                int biggestPos = 0;
+
+                for (int i = 0; i < quantities.Length; i++)
+                {
+                    if (quantities[i] > biggestQuant)
+                    {
+                        biggestQuant = quantities[i];
+                        biggestPos = i;
+                    }
+                }
+
+                mostSorted[0, 0] = biggestPos + 1;
+                mostSorted[1, 0] = biggestQuant;
+                quantities[biggestPos] = -1;
+
+
+                biggestQuant = 0;
+                biggestPos = 0;
+
+                for (int i = 0; i < quantities.Length; i++)
+                {
+                    if (quantities[i] > biggestQuant)
+                    {
+                        biggestQuant = quantities[i];
+                        biggestPos = i;
+                    }
+                }
+                mostSorted[0, 1] = biggestPos + 1;
+                mostSorted[1, 1] = biggestQuant;
+                quantities[biggestPos] = -1;
+
+                biggestQuant = 0;
+                biggestPos = 0;
+
+                for (int i = 0; i < quantities.Length; i++)
+                {
+                    if (quantities[i] > biggestQuant)
+                    {
+                        biggestQuant = quantities[i];
+                        biggestPos = i;
+                    }
+                }
+
+                mostSorted[0, 2] = biggestPos + 1;
+                mostSorted[1, 2] = biggestQuant;
+            }
+
+            else if (lotteryStr == "DuplaSena")
+            {
+                var lotteries = context.duplaSenas;
+                int[] quantities = new int[50];
+                foreach (var lottery in lotteries)
+                {
+                    int[] result = Feature.ConvertSequence(lottery.Result);
+                    if (result == null) continue;
+                    foreach (int n in result)
+                    {
+                        quantities[n - 1]++;
+                    }
+                }
+
+                int biggestQuant = 0;
+                int biggestPos = 0;
+
+                for (int i = 0; i < quantities.Length; i++)
+                {
+                    if (quantities[i] > biggestQuant)
+                    {
+                        biggestQuant = quantities[i];
+                        biggestPos = i;
+                    }
+                }
+
+                mostSorted[0, 0] = biggestPos + 1;
+                mostSorted[1, 0] = biggestQuant;
+                quantities[biggestPos] = -1;
+
+
+                biggestQuant = 0;
+                biggestPos = 0;
+
+                for (int i = 0; i < quantities.Length; i++)
+                {
+                    if (quantities[i] > biggestQuant)
+                    {
+                        biggestQuant = quantities[i];
+                        biggestPos = i;
+                    }
+                }
+                mostSorted[0, 1] = biggestPos + 1;
+                mostSorted[1, 1] = biggestQuant;
+                quantities[biggestPos] = -1;
+
+                biggestQuant = 0;
+                biggestPos = 0;
+
+                for (int i = 0; i < quantities.Length; i++)
+                {
+                    if (quantities[i] > biggestQuant)
+                    {
+                        biggestQuant = quantities[i];
+                        biggestPos = i;
+                    }
+                }
+
+                mostSorted[0, 2] = biggestPos + 1;
+                mostSorted[1, 2] = biggestQuant;
+            }
+
+            else if (lotteryStr == "Lotomania")
+            {
+                var lotteries = context.megaSenas;
+                int[] quantities = new int[100];
+                foreach (var lottery in lotteries)
+                {
+                    int[] result = Feature.ConvertSequence(lottery.Result);
+                    if (result == null) continue;
+                    foreach (int n in result)
+                    {
+                        quantities[n - 1]++;
+                    }
+                }
+
+                int biggestQuant = 0;
+                int biggestPos = 0;
+
+                for (int i = 0; i < quantities.Length; i++)
+                {
+                    if (quantities[i] > biggestQuant)
+                    {
+                        biggestQuant = quantities[i];
+                        biggestPos = i;
+                    }
+                }
+
+                mostSorted[0, 0] = biggestPos;
+                mostSorted[1, 0] = biggestQuant;
+                quantities[biggestPos] = -1;
+
+
+                biggestQuant = 0;
+                biggestPos = 0;
+
+                for (int i = 0; i < quantities.Length; i++)
+                {
+                    if (quantities[i] > biggestQuant)
+                    {
+                        biggestQuant = quantities[i];
+                        biggestPos = i;
+                    }
+                }
+                mostSorted[0, 1] = biggestPos;
+                mostSorted[1, 1] = biggestQuant;
+                quantities[biggestPos] = -1;
+
+                biggestQuant = 0;
+                biggestPos = 0;
+
+                for (int i = 0; i < quantities.Length; i++)
+                {
+                    if (quantities[i] > biggestQuant)
+                    {
+                        biggestQuant = quantities[i];
+                        biggestPos = i;
+                    }
+                }
+
+                mostSorted[0, 2] = biggestPos;
+                mostSorted[1, 2] = biggestQuant;
+            }
+
+            else if (lotteryStr == "Quina")
+            {
+                var lotteries = context.quinas;
+                int[] quantities = new int[80];
+                foreach (var lottery in lotteries)
+                {
+                    int[] result = Feature.ConvertSequence(lottery.Result);
+                    if (result == null) continue;
+                    foreach (int n in result)
+                    {
+                        quantities[n - 1]++;
+                    }
+                }
+
+                int biggestQuant = 0;
+                int biggestPos = 0;
+
+                for (int i = 0; i < quantities.Length; i++)
+                {
+                    if (quantities[i] > biggestQuant)
+                    {
+                        biggestQuant = quantities[i];
+                        biggestPos = i;
+                    }
+                }
+
+                mostSorted[0, 0] = biggestPos + 1;
+                mostSorted[1, 0] = biggestQuant;
+                quantities[biggestPos] = -1;
+
+
+                biggestQuant = 0;
+                biggestPos = 0;
+
+                for (int i = 0; i < quantities.Length; i++)
+                {
+                    if (quantities[i] > biggestQuant)
+                    {
+                        biggestQuant = quantities[i];
+                        biggestPos = i;
+                    }
+                }
+                mostSorted[0, 1] = biggestPos + 1;
+                mostSorted[1, 1] = biggestQuant;
+                quantities[biggestPos] = -1;
+
+                biggestQuant = 0;
+                biggestPos = 0;
+
+                for (int i = 0; i < quantities.Length; i++)
+                {
+                    if (quantities[i] > biggestQuant)
+                    {
+                        biggestQuant = quantities[i];
+                        biggestPos = i;
+                    }
+                }
+
+                mostSorted[0, 2] = biggestPos + 1;
+                mostSorted[1, 2] = biggestQuant;
+            }
+
+            else if (lotteryStr == "LotoFacil")
+            {
+                var lotteries = context.lotoFacils;
+                int[] quantities = new int[25];
+                foreach (var lottery in lotteries)
+                {
+                    int[] result = Feature.ConvertSequence(lottery.Result);
+                    if (result == null) continue;
+                    foreach (int n in result)
+                    {
+                        quantities[n - 1]++;
+                    }
+                }
+
+                int biggestQuant = 0;
+                int biggestPos = 0;
+
+                for (int i = 0; i < quantities.Length; i++)
+                {
+                    if (quantities[i] > biggestQuant)
+                    {
+                        biggestQuant = quantities[i];
+                        biggestPos = i;
+                    }
+                }
+
+                mostSorted[0, 0] = biggestPos + 1;
+                mostSorted[1, 0] = biggestQuant;
+                quantities[biggestPos] = -1;
+
+
+                biggestQuant = 0;
+                biggestPos = 0;
+
+                for (int i = 0; i < quantities.Length; i++)
+                {
+                    if (quantities[i] > biggestQuant)
+                    {
+                        biggestQuant = quantities[i];
+                        biggestPos = i;
+                    }
+                }
+                mostSorted[0, 1] = biggestPos + 1;
+                mostSorted[1, 1] = biggestQuant;
+                quantities[biggestPos] = -1;
+
+                biggestQuant = 0;
+                biggestPos = 0;
+
+                for (int i = 0; i < quantities.Length; i++)
+                {
+                    if (quantities[i] > biggestQuant)
+                    {
+                        biggestQuant = quantities[i];
+                        biggestPos = i;
+                    }
+                }
+
+                mostSorted[0, 2] = biggestPos + 1;
+                mostSorted[1, 2] = biggestQuant;
+            }
+
+            else throw new ArgumentException("Wrong lotteryStr");
+
+
+
+            return mostSorted;
         }
     }
 }

@@ -265,7 +265,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <!-- Style for the ComboBox -->
+        
 
     </Window.Resources>
     <StackPanel Width="1600" Height="900">
@@ -348,12 +348,12 @@
                 x:Name="returnButton"
                 BorderThickness="4"
                 
-                BorderBrush="#FFFFFF"
+                BorderBrush="{Binding ElementName=Busca, Path=BorderBrush}"
                 Margin="24,0,0,0"
                 VerticalAlignment="Center"
                 VerticalContentAlignment="Center"
                 HorizontalAlignment="Left"
-                Background="#FFFFFF"
+                Background="{Binding ElementName=Busca, Path=Background}"
                 Foreground="#000001"
                 Width="64"
                 Content="&lt;" 
@@ -393,18 +393,18 @@
                 x:Name="searchButton"
                 BorderThickness="4"
                 
-                BorderBrush="#FFFFFF"
+                BorderBrush="{Binding ElementName=Busca, Path=BorderBrush}"
                 Margin="330,0,0,0"
                 VerticalAlignment="Center"
                 VerticalContentAlignment="Center"
                 HorizontalAlignment="Left"
-                Background="#FFFFFF"
+                Background="{Binding ElementName=Busca, Path=Background}"
                 Foreground="#000001"
                 Width="80"
                 Height="80"
                 Click="searchButton_Click" Grid.Column="3">
-                <Image Source="img/search3.png" Width="64"/>
-                <Button.Resources>
+                <Image Source="/img/Group.svg" Width="64"/>
+                    <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
@@ -504,12 +504,291 @@
                                    Width="300"
                                    Height="100"
                                    TextAlignment="Center"> Maiores Prêmios</TextBlock>
-
-                        <StackPanel x:Name="childHolderTwo"
-                                    Margin="0,240,0,0"
-                                    Width="1600"
-                                    Height="800"
+                        <StackPanel x:Name="stackContainer"
+                                    Margin="0, 240, 0, 0"
                                     >
+                            <StackPanel x:Name="childHolderTwo"
+                                        Margin="0,0,0,0"
+                                        Width="1600"
+                                        >
+                            </StackPanel>
+                            <TextBlock x:Name="mostSortedTxtBlock"
+                                FontSize="48"
+                                Margin="64, 0, 0, 64"
+                                Foreground="{Binding ElementName=titleTwo, Path=Foreground}"
+                                >
+                                Números mais sorteados</TextBlock>
+
+                            <Grid Width="720">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="80"></RowDefinition>
+                                    <RowDefinition Height="112"></RowDefinition>
+                                    <RowDefinition Height="112"></RowDefinition>
+                                    <RowDefinition Height="112"></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="112"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+
+                                <Border
+                                    BorderThickness="4"
+                                    BorderBrush="{Binding ElementName=mainColor, Path=Background}"
+                                    Grid.Column="0"
+                                    Grid.Row="1"
+                                    >
+                                    <TextBlock
+                                            
+                                            Background="White"
+                                            FontSize="40"
+                                            TextAlignment="Center"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Padding="28"
+                                            Width="auto"
+                                            Height="auto"
+                                            
+                                            Foreground="#1a1a1a"
+                                        >
+                                        1º
+                                    </TextBlock>
+                                </Border>
+
+                                <Border
+                                    BorderThickness="4"
+                                    BorderBrush="{Binding ElementName=mainColor, Path=Background}"
+                                    Grid.Column="0"
+                                    Grid.Row="2"
+                                    >
+                                    <TextBlock
+                                            
+                                            Background="White"
+                                            FontSize="40"
+                                            TextAlignment="Center"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Padding="28"
+                                            Width="auto"
+                                            Height="auto"
+                                            
+                                            Foreground="#1a1a1a"
+                                        >
+                                        2º
+                                    </TextBlock>
+                                </Border>
+
+                                <Border
+                                    BorderThickness="4"
+                                    BorderBrush="{Binding ElementName=mainColor, Path=Background}"
+                                    Grid.Column="0"
+                                    Grid.Row="3"
+                                    >
+                                    <TextBlock
+                                            
+                                            Background="White"
+                                            FontSize="40"
+                                            TextAlignment="Center"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Padding="28"
+                                            Width="auto"
+                                            Height="auto"
+                                            
+                                            Foreground="#1a1a1a"
+                                        >
+                                        3º
+                                    </TextBlock>
+                                </Border>
+
+                                <Border
+                                    BorderThickness="4"
+                                    BorderBrush="{Binding ElementName=mainColor, Path=Background}"
+                                    Grid.Column="1"
+                                    Grid.Row="0"
+                                    >
+                                        <TextBlock
+                                            
+                                            Background="White"
+                                            FontSize="28"
+                                            TextAlignment="Center"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Padding="12"
+                                            Width="auto"
+                                            Height="auto"
+                                        >
+                                        Número
+                                        </TextBlock>
+                                </Border>
+
+                                <Border
+                                    BorderThickness="4"
+                                    BorderBrush="{Binding ElementName=mainColor, Path=Background}"
+                                    Grid.Column="2"
+                                    Grid.Row="0"
+                                    >
+                                    <TextBlock
+                                            
+                                            Background="White"
+                                            FontSize="28"
+                                            TextAlignment="Center"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Padding="12"
+                                            Width="auto"
+                                            Height="auto"
+                                        >
+                                        Nº de vezes sorteado
+                                    </TextBlock>
+                                </Border>
+
+                                <Border
+                                    BorderThickness="4"
+                                    BorderBrush="{Binding ElementName=mainColor, Path=Background}"
+                                    Grid.Column="1"
+                                    Grid.Row="1"
+                                    >
+                                    <TextBlock                                            
+                                            x:Name="Num01"    
+                                            Background="White"
+                                            Foreground="#222222"
+                                            FontSize="56"
+                                            FontWeight="SemiBold"
+                                            TextAlignment="Center"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Padding="12"
+                                            Width="auto"
+                                            Height="auto"                                            
+                                        >
+                                        
+                                    </TextBlock>
+                                </Border>
+
+                                <Border
+                                    BorderThickness="4"
+                                    BorderBrush="{Binding ElementName=mainColor, Path=Background}"
+                                    Grid.Column="1"
+                                    Grid.Row="2"
+                                    >
+                                    <TextBlock
+                                            x:Name="Num02"  
+                                            Background="White"
+                                            Foreground="#222222"
+                                            FontSize="56"
+                                            FontWeight="SemiBold"
+                                            TextAlignment="Center"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Padding="12"
+                                            Width="auto"
+                                            Height="auto"
+                                        >
+                                        
+                                    </TextBlock>
+                                </Border>
+
+                                <Border
+                                    BorderThickness="4"
+                                    BorderBrush="{Binding ElementName=mainColor, Path=Background}"
+                                    Grid.Column="1"
+                                    Grid.Row="3"
+                                    >
+                                    <TextBlock
+                                            x:Name="Num03"  
+                                            Background="White"
+                                            Foreground="#222222"
+                                            FontSize="56"
+                                            FontWeight="SemiBold"
+                                            TextAlignment="Center"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Padding="12"
+                                            Width="auto"
+                                            Height="auto"
+                                        >
+                                        
+                                    </TextBlock>
+                                </Border>
+
+                                <Border
+                                    BorderThickness="4"
+                                    BorderBrush="{Binding ElementName=mainColor, Path=Background}"
+                                    Grid.Column="2"
+                                    Grid.Row="1"
+                                    >
+                                    <TextBlock
+                                            x:Name="Quant01"
+                                            Background="White"
+                                            Foreground="#111111"
+                                            FontSize="40"
+                                            
+                                            TextAlignment="Center"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Padding="12"
+                                            Width="auto"
+                                            Height="auto"
+                                        >
+
+                                    </TextBlock>
+                                </Border>
+
+                                <Border
+                                    BorderThickness="4"
+                                    BorderBrush="{Binding ElementName=mainColor, Path=Background}"
+                                    Grid.Column="2"
+                                    Grid.Row="2"
+                                    >
+                                    <TextBlock
+                                            x:Name="Quant02"
+                                            Background="White"
+                                            Foreground="#111111"
+                                            FontSize="40"
+                                            
+                                            TextAlignment="Center"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Padding="12"
+                                            Width="auto"
+                                            Height="auto"
+                                        >
+
+                                    </TextBlock>
+                                </Border>
+
+                                <Border
+                                    BorderThickness="4"
+                                    BorderBrush="{Binding ElementName=mainColor, Path=Background}"
+                                    Grid.Column="2"
+                                    Grid.Row="3"
+                                    >
+                                    <TextBlock
+                                            x:Name="Quant03"
+                                            Background="White"
+                                            Foreground="#020202"
+                                            FontSize="40"
+                                            
+                                            TextAlignment="Center"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Padding="20"
+                                            Width="auto"
+                                            Height="auto"
+                                        >
+                                        
+                                    </TextBlock>
+                                </Border>
+
+
+
+                            </Grid>
+
+                            <Grid Height="160"></Grid>
+
                         </StackPanel>
                     </Grid>
                 </ScrollViewer>

@@ -364,13 +364,13 @@ namespace Mega_sena_front
             Grid grid = new();
             grid.Margin = new Thickness(0, 40, 0, 0);
             grid.Width = 1400;
-            grid.Height = 196;
+            grid.Height = 240;
             grid.Background = whiteColor;
             grid.HorizontalAlignment = HorizontalAlignment.Center;
             grid.VerticalAlignment = VerticalAlignment.Top;
 
             TextBlock nameTextBlock = new();
-            nameTextBlock.Text = "Mega-Sena (" + duplaSena.Id + ")";
+            nameTextBlock.Text = "Dupla Sena (" + duplaSena.Id + ")";
             nameTextBlock.Margin = new Thickness(46, 30, 0, 0);
             nameTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
             nameTextBlock.VerticalAlignment = VerticalAlignment.Top;
@@ -379,7 +379,7 @@ namespace Mega_sena_front
             grid.Children.Add(nameTextBlock);
             TextBlock statusTextBlock = new();
             statusTextBlock.Text = "Status: " + duplaSena.Status;
-            statusTextBlock.Margin = new Thickness(46, 0, 0, 64);
+            statusTextBlock.Margin = new Thickness(46, 0, 0, 102);
             statusTextBlock.HorizontalAlignment = HorizontalAlignment.Left;
             statusTextBlock.VerticalAlignment = VerticalAlignment.Bottom;
             statusTextBlock.FontSize = 24;
@@ -394,7 +394,7 @@ namespace Mega_sena_front
                                                        duplaSena.Result[6] + duplaSena.Result[7] + " " +
                                                        duplaSena.Result[8] + duplaSena.Result[9] + " " +
                                                        duplaSena.Result[10] + duplaSena.Result[11];
-                resultTextBlock1.Margin = new Thickness(46, 0, 0, 26);
+                resultTextBlock1.Margin = new Thickness(46, 0, 0, 64);
                 resultTextBlock1.HorizontalAlignment = HorizontalAlignment.Left;
                 resultTextBlock1.VerticalAlignment = VerticalAlignment.Bottom;
                 resultTextBlock1.FontSize = 24;
@@ -408,7 +408,7 @@ namespace Mega_sena_front
                                                        duplaSena.Result[18] + duplaSena.Result[19] + " " +
                                                        duplaSena.Result[20] + duplaSena.Result[21] + " " +
                                                        duplaSena.Result[22] + duplaSena.Result[23];
-                resultTextBlock2.Margin = new Thickness(46, 0, 0, 36);
+                resultTextBlock2.Margin = new Thickness(46, 0, 0, 26);
                 resultTextBlock2.HorizontalAlignment = HorizontalAlignment.Left;
                 resultTextBlock2.VerticalAlignment = VerticalAlignment.Bottom;
                 resultTextBlock2.FontSize = 24;
@@ -443,13 +443,20 @@ namespace Mega_sena_front
             return grid;
         }
 
+        private class MostSortedNumber
+        {            
+            public string position { get; set; }
+            public int number { get; set; }
+            public int quantity { get; set; }
+        }
+        
         public MainWindow(Context context)
         {
             this.context = context;
             InitializeComponent();
             context.SaveChanges();
 
-            search = new(context);
+            search = new Search(context);
             currentLottery = "MegaSena";
 
             Busca.Text = "Busca";
@@ -462,7 +469,9 @@ namespace Mega_sena_front
             }
             if (childHolderTwo != null)
             {
-                MegaSena[] megaSenass = new MegaSena[3];
+                int size = 0;
+                foreach (MegaSena megaSena in context.megaSenas) size++;
+                MegaSena[] megaSenass = new MegaSena[size];
                 int i = 0;
                 foreach (MegaSena m in context.megaSenas)
                 {
@@ -477,13 +486,24 @@ namespace Mega_sena_front
                     childHolderTwo.Children.Add(createFillerGrid());
                 }
             }
+            int[,] mostSorted = search.MostSortedNumbers("MegaSena");
+            Num01.Text = mostSorted[0, 0].ToString();
+            Num02.Text = mostSorted[0, 1].ToString();
+            Num03.Text = mostSorted[0, 2].ToString();
+
+            Quant01.Text = mostSorted[1, 0].ToString();
+            Quant02.Text = mostSorted[1, 1].ToString();
+            Quant03.Text = mostSorted[1, 2].ToString();
+
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            search = new Search(context);
             ComboBoxItem lottery = cbBox.SelectedItem as ComboBoxItem;
             returnButton.Visibility = Visibility.Collapsed;
             inSearch = false;
+            int[,] mostSorted;
             switch (lottery.Name)
             {
                 case "MegaSena":
@@ -519,6 +539,18 @@ namespace Mega_sena_front
                             childHolderTwo.Children.Add(createFillerGrid());
                         }
                     }
+
+                    mostSorted = search.MostSortedNumbers("MegaSena");
+
+                    if (Num01 == null) break;
+                    Num01.Text = mostSorted[0, 0].ToString();
+                    Num02.Text = mostSorted[0, 1].ToString();
+                    Num03.Text = mostSorted[0, 2].ToString();
+
+                    Quant01.Text = mostSorted[1, 0].ToString();
+                    Quant02.Text = mostSorted[1, 1].ToString();
+                    Quant03.Text = mostSorted[1, 2].ToString();
+
                     break;
                 case "Lotofacil":
                     currentLottery = "Lotofacil";
@@ -553,7 +585,18 @@ namespace Mega_sena_front
                         randomNumber.Foreground =  grayColor;
                         randomNumber.Content = "XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX";
                     }
+
+                    mostSorted = search.MostSortedNumbers("LotoFacil");
+                    if (mostSorted == null) break;
+                    Num01.Text = mostSorted[0, 0].ToString();
+                    Num02.Text = mostSorted[0, 1].ToString();
+                    Num03.Text = mostSorted[0, 2].ToString();
+
+                    Quant01.Text = mostSorted[1, 0].ToString();
+                    Quant02.Text = mostSorted[1, 1].ToString();
+                    Quant03.Text = mostSorted[1, 2].ToString();
                     break;
+                    
                 case "Quina":
                     currentLottery = "Quina";
                     if (childrenHolder != null)
@@ -587,7 +630,18 @@ namespace Mega_sena_front
                             childHolderTwo.Children.Add(createFillerGrid());
                         }
                     }
+
+                    mostSorted = search.MostSortedNumbers("Quina");
+                    if (mostSorted == null) break;
+                    Num01.Text = mostSorted[0, 0].ToString();
+                    Num02.Text = mostSorted[0, 1].ToString();
+                    Num03.Text = mostSorted[0, 2].ToString();
+
+                    Quant01.Text = mostSorted[1, 0].ToString();
+                    Quant02.Text = mostSorted[1, 1].ToString();
+                    Quant03.Text = mostSorted[1, 2].ToString();
                     break;
+                    
                 case "Lotomania":
                     currentLottery = "Quina";
                     if (childrenHolder != null)
@@ -621,6 +675,17 @@ namespace Mega_sena_front
                             childHolderTwo.Children.Add(createFillerGrid());
                         }
                     }
+
+                    mostSorted = search.MostSortedNumbers("Lotomania");
+                    if (mostSorted == null) break;
+                    Num01.Text = mostSorted[0, 0].ToString();
+                    Num02.Text = mostSorted[0, 1].ToString();
+                    Num03.Text = mostSorted[0, 2].ToString();
+
+                    Quant01.Text = mostSorted[1, 0].ToString();
+                    Quant02.Text = mostSorted[1, 1].ToString();
+                    Quant03.Text = mostSorted[1, 2].ToString();
+
                     break;
                 case "DuplaSena":
                     currentLottery = "DuplaSena";
@@ -638,7 +703,9 @@ namespace Mega_sena_front
                     if (childHolderTwo != null)
                     {
                         childHolderTwo.Children.Clear();
-                        DuplaSena[] duplas = new DuplaSena[context.duplaSenas.Count(t => t.Id == '1')];
+                        int size = 0;
+                        foreach (DuplaSena d in context.duplaSenas) size++;
+                        DuplaSena[] duplas = new DuplaSena[size];
                         int i = 0;
                         foreach (DuplaSena d in context.duplaSenas)
                         {
@@ -652,6 +719,16 @@ namespace Mega_sena_front
                             childHolderTwo.Children.Add(createFillerGrid());
                         }
                     }
+                    mostSorted = search.MostSortedNumbers("DuplaSena");
+                    if (mostSorted == null) break;
+                    Num01.Text = mostSorted[0, 0].ToString();
+                    Num02.Text = mostSorted[0, 1].ToString();
+                    Num03.Text = mostSorted[0, 2].ToString();
+
+                    Quant01.Text = mostSorted[1, 0].ToString();
+                    Quant02.Text = mostSorted[1, 1].ToString();
+                    Quant03.Text = mostSorted[1, 2].ToString();
+
                     break;
                 default:
                     break;
@@ -778,9 +855,16 @@ namespace Mega_sena_front
 
                 textResult.Text = "Resultados da pesquisa:";
                 textResult.FontSize = 48;
-                textResult.Foreground = whiteColor;
+                
                 textResult.Padding = new Thickness{Left =  24, Top =  24, Right = 0, Bottom = 32};
-               
+
+                Binding myBinding = new Binding();
+                myBinding.Source = titleColor;
+                myBinding.Path = new PropertyPath("Foreground");
+                myBinding.Mode = BindingMode.TwoWay;
+                myBinding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                BindingOperations.SetBinding(textResult, TextBlock.ForegroundProperty, myBinding);
+
                 childrenHolder.Children.Clear();
                 childrenHolder.Children.Add(textResult);
 
