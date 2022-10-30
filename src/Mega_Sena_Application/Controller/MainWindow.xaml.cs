@@ -880,8 +880,8 @@ namespace Mega_sena_front
                         {
                             foreach (MegaSena megaSena in megas)
                             {
-                                childrenHolder.Children.Insert(0, createTile(megaSena));
-                                childrenHolder.Children.Insert(1, createFillerGrid());
+                                childrenHolder.Children.Add(createTile(megaSena));
+                                childrenHolder.Children.Add(createFillerGrid());
                             }
                         }
                         break;
@@ -893,8 +893,8 @@ namespace Mega_sena_front
                         {
                             foreach (LotoFacil lf in lfacil)
                             {
-                                childrenHolder.Children.Insert(0, createTile(lf));
-                                childrenHolder.Children.Insert(1, createFillerGrid());
+                                childrenHolder.Children.Add(createTile(lf));
+                                childrenHolder.Children.Add(createFillerGrid());
                             }                           
                         }
                         break;
@@ -906,8 +906,8 @@ namespace Mega_sena_front
                         {
                             foreach (Quina q in quinas)
                             {
-                                childrenHolder.Children.Insert(0, createTile(q));
-                                childrenHolder.Children.Insert(1, createFillerGrid());
+                                childrenHolder.Children.Add(createTile(q));
+                                childrenHolder.Children.Add(createFillerGrid());
                             }
                         }
                         break;
@@ -919,8 +919,8 @@ namespace Mega_sena_front
                         {
                             foreach (DuplaSena d in duplas)
                             {
-                                childrenHolder.Children.Insert(0, createTile(d));
-                                childrenHolder.Children.Insert(1, createFillerGrid());
+                                childrenHolder.Children.Add(createTile(d));
+                                childrenHolder.Children.Add(createFillerGrid());
                             }
                         }
                         break;
@@ -932,8 +932,8 @@ namespace Mega_sena_front
                         {
                             foreach (Lotomania lm in lmanias)
                             {
-                                childrenHolder.Children.Insert(0, createTile(lm));
-                                childrenHolder.Children.Insert(1, createFillerGrid());
+                                childrenHolder.Children.Add(createTile(lm));
+                                childrenHolder.Children.Add(createFillerGrid());
                             }
                         }
                         break;
