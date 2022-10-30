@@ -277,7 +277,7 @@
             <Grid x:Name="mainColor"  Width="1600" Height="128" Background="#262626" HorizontalAlignment="Center">
                 <Button 
                 x:Name="titleColor"
-                Margin="46,0,0,0"
+                Margin="46,0,0,16"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 FontSize="64"
@@ -311,7 +311,7 @@
                 >
                 </Rectangle>
                 <Button 
-                Margin="1249,0,0,21"
+                Margin="1249,0,0,16"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 FontSize="64"
@@ -403,7 +403,7 @@
                 Width="80"
                 Height="80"
                 Click="searchButton_Click" Grid.Column="3">
-                <Image Source="/img/Group.svg" Width="64"/>
+                <Image Source="/img/search-icon-png-21.png" Width="48"/>
                     <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>

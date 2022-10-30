@@ -1077,23 +1077,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pepep\\.nuget\\packages\\": {},
+    "C:\\Users\\bruno\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pepep\\VSCode\\Samsung\\D10\\CTEDS-d10-projeto-final\\front_end\\Mega_sena_front\\Mega_sena_front.csproj",
+      "projectUniqueName": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\CTEDS-d10-projeto-final\\front_end\\Mega_sena_front\\Mega_sena_front.csproj",
       "projectName": "Mega_sena_front",
-      "projectPath": "C:\\Users\\pepep\\VSCode\\Samsung\\D10\\CTEDS-d10-projeto-final\\front_end\\Mega_sena_front\\Mega_sena_front.csproj",
-      "packagesPath": "C:\\Users\\pepep\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pepep\\VSCode\\Samsung\\D10\\CTEDS-d10-projeto-final\\front_end\\Mega_sena_front\\obj\\",
+      "projectPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\CTEDS-d10-projeto-final\\front_end\\Mega_sena_front\\Mega_sena_front.csproj",
+      "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\bruno\\OneDrive\\Área de Trabalho\\CTEDS-d10-projeto-final\\front_end\\Mega_sena_front\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\pepep\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1147,7 +1147,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.305\\RuntimeIdentifierGraph.json"
       }
     }
   }
