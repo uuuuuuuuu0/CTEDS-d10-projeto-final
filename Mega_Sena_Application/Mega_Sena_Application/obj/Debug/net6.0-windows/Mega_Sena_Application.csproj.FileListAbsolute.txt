@@ -1,6 +1,0 @@
-C:\Users\pepep\VSCode\Samsung\D10\CTEDS-d10-projeto-final\Mega_Sena_Application\Mega_Sena_Application\obj\Debug\net6.0-windows\Mega_Sena_Application.csproj.AssemblyReference.cache
-C:\Users\pepep\VSCode\Samsung\D10\CTEDS-d10-projeto-final\Mega_Sena_Application\Mega_Sena_Application\obj\Debug\net6.0-windows\ResultsWindow.g.cs
-C:\Users\pepep\VSCode\Samsung\D10\CTEDS-d10-projeto-final\Mega_Sena_Application\Mega_Sena_Application\obj\Debug\net6.0-windows\App.g.cs
-C:\Users\pepep\VSCode\Samsung\D10\CTEDS-d10-projeto-final\Mega_Sena_Application\Mega_Sena_Application\obj\Debug\net6.0-windows\Mega_Sena_Application_MarkupCompile.cache
-C:\Users\pepep\VSCode\Samsung\D10\CTEDS-d10-projeto-final\Mega_Sena_Application\Mega_Sena_Application\obj\Debug\net6.0-windows\Mega_Sena_Application_MarkupCompile.lref
-C:\Users\pepep\VSCode\Samsung\D10\CTEDS-d10-projeto-final\Mega_Sena_Application\Mega_Sena_Application\obj\Debug\net6.0-windows\MainWindow.g.cs
